@@ -40,6 +40,10 @@
     @keyframes pulse-ring { 0% { transform: scale(0.8); opacity: 0.6; } 100% { transform: scale(1.6); opacity: 0; } }
     .pulse-ring::after { content: ''; position: absolute; inset: 0; border-radius: 9999px; border: 2px solid #f59e0b; animation: pulse-ring 1.6s ease-out infinite; }
   </style>
+  <script>
+    window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+  </script>
+  <script defer src="/_vercel/insights/script.js"></script>
 </head>
 <body class="bg-black text-white min-h-screen flex flex-col">
   <main class="flex-1 flex items-center justify-center px-6 py-12">
