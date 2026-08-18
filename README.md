@@ -13,3 +13,6 @@ Plain HTML, no build step. Tailwind is loaded via CDN.
 ## Deploy
 Hosted on Vercel (project `wave-check-website`), which builds directly from this repo's root.
 Routing lives in `vercel.json` (`cleanUrls`, and the `/share/:id → /share` rewrite).
+
+This repo is intentionally **public**: Vercel's Hobby plan can't deploy private repos owned
+by an organization. It's a static marketing/legal site with no secrets, so public is fine.
