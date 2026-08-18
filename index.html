@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WaveCheck — Live surf reports from local surfers</title>
+  <meta name="description" content="The fastest way to know what the surf is doing right now — straight from the surfers at the break. Real photos, real wave size, real wind. Posted by real surfers.">
+  <meta name="theme-color" content="#000000">
+  <link rel="canonical" href="https://wavecheck.app/">
+  <link rel="icon" href="favicon.png" type="image/png">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="WaveCheck">
+  <meta property="og:title" content="WaveCheck — Live surf reports from local surfers">
+  <meta property="og:description" content="Real-time surf conditions posted by the community. Wave size, wind, weather — straight from surfers in the water.">
+  <meta property="og:url" content="https://wavecheck.app/">
+  <meta property="og:image" content="https://wavecheck.app/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="WaveCheck — Live surf reports">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="WaveCheck — Live surf reports from local surfers">
+  <meta name="twitter:description" content="Real-time surf conditions posted by the community. Wave size, wind, weather — straight from surfers in the water.">
+  <meta name="twitter:image" content="https://wavecheck.app/og-image.png">
+  <meta name="twitter:image:alt" content="WaveCheck — Live surf reports">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'] },
+          colors: {
+            primary: { 50:'#f9fafb', 100:'#f3f4f6', 200:'#e5e7eb', 300:'#d1d5db', 400:'#9ca3af', 500:'#6b7280', 600:'#4b5563', 700:'#374151', 800:'#1f2937', 900:'#111827' },
+            premium: { 50:'#fffbeb', 100:'#fef3c7', 200:'#fde68a', 300:'#fcd34d', 400:'#fbbf24', 500:'#f59e0b', 600:'#d97706' }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', system-ui, -apple-system, sans-serif; -webkit-font-smoothing: antialiased; }
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+  </style>
+</head>
+<body class="bg-black text-white">
+  <header class="absolute top-0 inset-x-0 z-20">
+    <div class="max-w-6xl mx-auto px-6 py-5 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-2">
+        <img src="assets/logo-white.png" alt="WaveCheck" class="h-7 w-auto">
+        <span class="text-lg font-bold tracking-tight">WaveCheck</span>
+      </a>
+      <nav class="flex items-center gap-4 sm:gap-6 text-sm text-primary-300">
+        <a href="support.html" class="hover:text-white transition">Support</a>
+        <a href="privacy.html" class="hover:text-white transition">Privacy</a>
+        <a href="terms.html" class="hover:text-white transition">Terms</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="relative overflow-hidden pt-32 pb-24 sm:pt-40 sm:pb-32">
+    <div class="absolute inset-0 bg-gradient-to-b from-primary-900 via-black to-black"></div>
+    <div class="absolute -top-32 left-1/2 -translate-x-1/2 w-[800px] h-[800px] rounded-full bg-premium-500/10 blur-3xl"></div>
+
+    <div class="relative max-w-4xl mx-auto px-6 text-center">
+      <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs font-medium text-primary-300 mb-6">
+        <span class="w-1.5 h-1.5 rounded-full bg-premium-400"></span>
+        Live surf reports &middot; from the lineup
+      </span>
+
+      <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight leading-[1.05]">
+        What the surf is doing <br>
+        <span class="text-premium-400">Right Now</span>
+      </h1>
+
+      <p class="mt-6 text-lg sm:text-xl text-primary-300 max-w-2xl mx-auto leading-relaxed">
+        WaveCheck is the fastest way to know what's happening at your local break. Real photos, real wave size, real wind. Posted by real surfers, minutes ago.
+      </p>
+
+      <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-3">
+        <a href="https://apps.apple.com/au/app/wavecheck/id6757846707" class="inline-flex items-center gap-3 px-6 py-3.5 rounded-2xl bg-white text-black font-semibold hover:bg-primary-100 transition shadow-lg shadow-white/10">
+          <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/></svg>
+          <span class="text-base font-bold">Download on the App Store</span>
+        </a>
+        <a href="https://play.google.com/store/apps/details?id=com.viniciusdias.wavecheck" class="inline-flex items-center gap-3 px-6 py-3.5 rounded-2xl bg-primary-800 text-white font-semibold hover:bg-primary-700 transition">
+          <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 1.85a1.7 1.7 0 0 0-.6 1.3v17.7c0 .5.21.96.55 1.27L13.2 12 3.6 1.85zm10.94 10.86l3.07-3.07-11.78-6.7 8.71 9.77zM4.83 21.34l11.78-6.7-3.07-3.06-8.71 9.76zM21.6 10.92l-3.36-1.92-3.55 3.55 3.55 3.55 3.36-1.92a1.65 1.65 0 0 0 0-3.26z"/></svg>
+          <span class="text-left leading-tight">
+            <span class="block text-[10px] font-medium opacity-70 uppercase tracking-wider">Get it on</span>
+            <span class="block text-base font-bold">Google Play</span>
+          </span>
+        </a>
+      </div>
+
+      <p class="mt-6 text-sm text-primary-500">Free to download &middot; iOS &amp; Android</p>
+    </div>
+  </section>
+
+  <section class="relative py-20 sm:py-28 bg-primary-50 text-primary-900">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <p class="text-sm font-semibold text-premium-600 uppercase tracking-wider mb-3">A feed of live conditions</p>
+        <h2 class="text-3xl sm:text-4xl font-bold tracking-tight">See exactly what's happening at the break</h2>
+        <p class="mt-4 text-primary-600 leading-relaxed">No more wasted drives. No more guessing if the wind has switched. No more forecasts lying about what's really out there.</p>
+      </div>
+
+      <div id="phoneCarousel" class="flex sm:grid sm:grid-cols-3 sm:gap-10 sm:max-w-4xl sm:mx-auto -mx-6 sm:mx-0 overflow-x-auto sm:overflow-visible snap-x snap-mandatory sm:snap-none pb-12 sm:pb-0 no-scrollbar">
+        <div data-slide="0" class="snap-center shrink-0 w-full sm:w-auto sm:shrink px-6 sm:px-0">
+          <div class="aspect-[9/19.5] mx-auto max-w-[240px] sm:max-w-none rounded-[2.5rem] bg-primary-900 p-1.5 shadow-2xl shadow-primary-300/40 sm:translate-y-8 overflow-hidden">
+            <img src="assets/screenshots/feed.png" alt="WaveCheck feed of live surf reports" class="block w-full h-full object-cover rounded-[2.2rem]">
+          </div>
+        </div>
+        <div data-slide="1" class="snap-center shrink-0 w-full sm:w-auto sm:shrink px-6 sm:px-0">
+          <div class="aspect-[9/19.5] mx-auto max-w-[240px] sm:max-w-none rounded-[2.5rem] bg-primary-900 p-1.5 shadow-2xl shadow-premium-500/30 overflow-hidden">
+            <img src="assets/screenshots/post.png" alt="Post detail showing live conditions at Burleigh Heads" class="block w-full h-full object-cover rounded-[2.2rem]">
+          </div>
+        </div>
+        <div data-slide="2" class="snap-center shrink-0 w-full sm:w-auto sm:shrink px-6 sm:px-0">
+          <div class="aspect-[9/19.5] mx-auto max-w-[240px] sm:max-w-none rounded-[2.5rem] bg-primary-900 p-1.5 shadow-2xl shadow-primary-300/40 sm:translate-y-8 overflow-hidden">
+            <img src="assets/screenshots/profile.png" alt="Surfer profile with XP, post history, and stats" class="block w-full h-full object-cover rounded-[2.2rem]">
+          </div>
+        </div>
+      </div>
+
+      <div id="phoneDots" class="flex sm:hidden justify-center gap-2 mt-6" aria-label="Screenshot navigation">
+        <button type="button" data-dot="0" aria-label="Show feed screenshot" class="h-2 w-6 rounded-full bg-primary-900 transition-all duration-300"></button>
+        <button type="button" data-dot="1" aria-label="Show post screenshot" class="h-2 w-2 rounded-full bg-primary-300 transition-all duration-300"></button>
+        <button type="button" data-dot="2" aria-label="Show profile screenshot" class="h-2 w-2 rounded-full bg-primary-300 transition-all duration-300"></button>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 sm:py-28 bg-black">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="max-w-2xl mb-14">
+        <p class="text-sm font-semibold text-premium-400 uppercase tracking-wider mb-3">What you can do</p>
+        <h2 class="text-3xl sm:text-4xl font-bold tracking-tight">Built for surfers who actually paddle out</h2>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-white/10 rounded-3xl overflow-hidden">
+        <div class="bg-black p-8">
+          <div class="w-10 h-10 rounded-xl bg-premium-500/10 flex items-center justify-center mb-5">
+            <svg class="w-5 h-5 text-premium-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
+          </div>
+          <h3 class="text-lg font-semibold mb-2">Check before you suit up</h3>
+          <p class="text-primary-400 text-sm leading-relaxed">See live conditions at the spots you ride before driving to the beach.</p>
+        </div>
+
+        <div class="bg-black p-8">
+          <div class="w-10 h-10 rounded-xl bg-premium-500/10 flex items-center justify-center mb-5">
+            <svg class="w-5 h-5 text-premium-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+          </div>
+          <h3 class="text-lg font-semibold mb-2">Real photos and video</h3>
+          <p class="text-primary-400 text-sm leading-relaxed">No charts and arrows. Real proof from surfers who are there right now.</p>
+        </div>
+
+        <div class="bg-black p-8">
+          <div class="w-10 h-10 rounded-xl bg-premium-500/10 flex items-center justify-center mb-5">
+            <svg class="w-5 h-5 text-premium-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/></svg>
+          </div>
+          <h3 class="text-lg font-semibold mb-2">Post your own reports</h3>
+          <p class="text-primary-400 text-sm leading-relaxed">Share photos, video, wave size, wind, and weather in seconds.</p>
+        </div>
+
+        <div class="bg-black p-8">
+          <div class="w-10 h-10 rounded-xl bg-premium-500/10 flex items-center justify-center mb-5">
+            <svg class="w-5 h-5 text-premium-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+          </div>
+          <h3 class="text-lg font-semibold mb-2">Follow surfers you trust</h3>
+          <p class="text-primary-400 text-sm leading-relaxed">Build a personalised feed of reporters whose calls you trust.</p>
+        </div>
+
+        <div class="bg-black p-8">
+          <div class="w-10 h-10 rounded-xl bg-premium-500/10 flex items-center justify-center mb-5">
+            <svg class="w-5 h-5 text-premium-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+          </div>
+          <h3 class="text-lg font-semibold mb-2">Search any break</h3>
+          <p class="text-primary-400 text-sm leading-relaxed">Find any spot, any surfer, anywhere on the coast.</p>
+        </div>
+
+        <div class="bg-black p-8">
+          <div class="w-10 h-10 rounded-xl bg-premium-500/10 flex items-center justify-center mb-5">
+            <svg class="w-5 h-5 text-premium-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"/></svg>
+          </div>
+          <h3 class="text-lg font-semibold mb-2">Earn XP for sharing</h3>
+          <p class="text-primary-400 text-sm leading-relaxed">Keep the community informed and redeem XP for real surf gear.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 sm:py-28 bg-primary-900">
+    <div class="max-w-5xl mx-auto px-6">
+      <div class="text-center max-w-2xl mx-auto mb-14">
+        <p class="text-sm font-semibold text-premium-400 uppercase tracking-wider mb-3">Why surfers use WaveCheck</p>
+        <h2 class="text-3xl sm:text-4xl font-bold tracking-tight">No fluff. Just what's breaking.</h2>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        <div class="rounded-2xl border border-white/10 bg-black/40 p-7">
+          <h3 class="font-semibold text-lg mb-2 flex items-center gap-2">
+            <span class="text-premium-400">&rarr;</span> Real reports, in real time
+          </h3>
+          <p class="text-primary-400 text-sm leading-relaxed">Every post is timestamped and tied to a spot. If it's not happening now, it's not on the feed.</p>
+        </div>
+        <div class="rounded-2xl border border-white/10 bg-black/40 p-7">
+          <h3 class="font-semibold text-lg mb-2 flex items-center gap-2">
+            <span class="text-premium-400">&rarr;</span> Photo and video proof
+          </h3>
+          <p class="text-primary-400 text-sm leading-relaxed">Numbers on a chart can lie. A photo of a head-high left peeling at your local can't.</p>
+        </div>
+        <div class="rounded-2xl border border-white/10 bg-black/40 p-7">
+          <h3 class="font-semibold text-lg mb-2 flex items-center gap-2">
+            <span class="text-premium-400">&rarr;</span> Size you can trust
+          </h3>
+          <p class="text-primary-400 text-sm leading-relaxed">Cameras flatten waves and forecasts predict. A WaveCheck report comes from the surfer who paddled out. The size tag is what they actually rode.</p>
+        </div>
+        <div class="rounded-2xl border border-white/10 bg-black/40 p-7">
+          <h3 class="font-semibold text-lg mb-2 flex items-center gap-2">
+            <span class="text-premium-400">&rarr;</span> A trusted lineup
+          </h3>
+          <p class="text-primary-400 text-sm leading-relaxed">Follow the surfers whose calls match what you find when you paddle out.</p>
+        </div>
+        <div class="rounded-2xl border border-white/10 bg-black/40 p-7">
+          <h3 class="font-semibold text-lg mb-2 flex items-center gap-2">
+            <span class="text-premium-400">&rarr;</span> Built by surfers, for surfers
+          </h3>
+          <p class="text-primary-400 text-sm leading-relaxed">No noise, no ads, no algorithm guessing what you want. Just surf.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="relative py-24 sm:py-32 bg-black overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-b from-black via-primary-900 to-black"></div>
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-premium-500/5 blur-3xl"></div>
+
+    <div class="relative max-w-3xl mx-auto px-6 text-center">
+      <h2 class="text-3xl sm:text-5xl font-extrabold tracking-tight leading-tight">
+        Catch the perfect wave.
+      </h2>
+      <p class="mt-5 text-lg text-primary-300 leading-relaxed max-w-xl mx-auto">
+        Share live surf reports from your local break, follow surfers you trust, and earn rewards for keeping the lineup informed.
+      </p>
+      <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-3">
+        <a href="https://apps.apple.com/au/app/wavecheck/id6757846707" class="inline-flex items-center gap-3 px-7 py-4 rounded-2xl bg-white text-black font-semibold hover:bg-primary-100 transition shadow-lg shadow-white/10">
+          <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/></svg>
+          <span class="text-base font-bold">Download on the App Store</span>
+        </a>
+        <a href="https://play.google.com/store/apps/details?id=com.viniciusdias.wavecheck" class="inline-flex items-center gap-3 px-7 py-4 rounded-2xl bg-primary-800 text-white font-semibold hover:bg-primary-700 transition">
+          <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 1.85a1.7 1.7 0 0 0-.6 1.3v17.7c0 .5.21.96.55 1.27L13.2 12 3.6 1.85zm10.94 10.86l3.07-3.07-11.78-6.7 8.71 9.77zM4.83 21.34l11.78-6.7-3.07-3.06-8.71 9.76zM21.6 10.92l-3.36-1.92-3.55 3.55 3.55 3.55 3.36-1.92a1.65 1.65 0 0 0 0-3.26z"/></svg>
+          <span class="text-left leading-tight">
+            <span class="block text-[10px] font-medium opacity-70 uppercase tracking-wider">Get it on</span>
+            <span class="block text-base font-bold">Google Play</span>
+          </span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="border-t border-white/10 bg-black">
+    <div class="max-w-6xl mx-auto px-6 py-12 flex flex-col sm:flex-row gap-8 sm:items-center sm:justify-between">
+      <div class="flex items-center gap-3">
+        <img src="assets/logo-white.png" alt="WaveCheck" class="h-7 w-auto">
+        <div>
+          <p class="font-bold">WaveCheck</p>
+          <p class="text-xs text-primary-500">Live surf reports &middot; from the lineup</p>
+        </div>
+      </div>
+      <nav class="flex flex-wrap gap-x-6 gap-y-2 text-sm text-primary-400">
+        <a href="support.html" class="hover:text-white transition">Support</a>
+        <a href="privacy.html" class="hover:text-white transition">Privacy</a>
+        <a href="terms.html" class="hover:text-white transition">Terms</a>
+        <a href="delete-account.html" class="hover:text-white transition">Delete account</a>
+        <a href="mailto:support@wavecheck.app" class="hover:text-white transition">support@wavecheck.app</a>
+      </nav>
+    </div>
+    <div class="border-t border-white/5">
+      <div class="max-w-6xl mx-auto px-6 py-5 text-xs text-primary-500">
+        &copy; 2026 <a href="https://viniciusteixeiradias.github.io/" target="_blank" rel="noopener" class="text-primary-300 underline underline-offset-2 decoration-primary-600 hover:text-white hover:decoration-white transition">Vinicius Teixeira Dias</a>. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      const carousel = document.getElementById('phoneCarousel');
+      const dotsRow = document.getElementById('phoneDots');
+
+      if (carousel === null || dotsRow === null) {
+        return;
+      }
+
+      const slides = carousel.querySelectorAll('[data-slide]');
+      const dots = dotsRow.querySelectorAll('[data-dot]');
+
+      const setActive = (idx) => {
+        dots.forEach((dot, i) => {
+          const isActive = i === idx;
+          dot.classList.toggle('w-6', isActive);
+          dot.classList.toggle('bg-primary-900', isActive);
+          dot.classList.toggle('w-2', !isActive);
+          dot.classList.toggle('bg-primary-300', !isActive);
+        });
+      };
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting && entry.intersectionRatio >= 0.6) {
+              setActive(parseInt(entry.target.dataset.slide, 10));
+            }
+          });
+        },
+        { root: carousel, threshold: [0.6] }
+      );
+
+      slides.forEach((slide) => observer.observe(slide));
+
+      dots.forEach((dot, i) => {
+        dot.addEventListener('click', () => {
+          slides[i].scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+        });
+      });
+    })();
+  </script>
+</body>
+</html>
