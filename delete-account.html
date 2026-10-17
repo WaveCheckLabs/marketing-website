@@ -55,7 +55,13 @@
         <a href="support.html" class="hover:text-primary-900 transition">Support</a>
         <a href="privacy.html" class="hover:text-primary-900 transition">Privacy</a>
         <a href="terms.html" class="hover:text-primary-900 transition">Terms</a>
-        <a href="pt-br/delete-account.html" lang="pt-BR" hreflang="pt-BR" title="Português" aria-label="Português" class="px-2 py-0.5 rounded-md border text-xs font-semibold transition border-primary-200 hover:text-primary-900 hover:border-primary-400">PT</a>
+        <details class="relative" data-language-menu>
+          <summary aria-label="Language" title="Language" class="list-none [&::-webkit-details-marker]:hidden cursor-pointer flex items-center p-1 rounded-md transition hover:text-primary-900"><svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 21l5.25-11.25L21 21m-9-3h7.5M3 5.621a48.474 48.474 0 016-.371m0 0c1.12 0 2.233.038 3.334.114M9 5.25V3m3.334 2.364C11.176 10.658 7.69 15.08 3 17.502m9.334-12.138c.896.061 1.785.147 2.666.257m-4.589 8.495a18.023 18.023 0 01-3.827-5.802"/></svg></summary>
+          <div class="absolute right-0 mt-3 w-44 z-30 py-1 rounded-xl border shadow-lg bg-white border-primary-100 shadow-primary-900/10">
+            <a href="delete-account.html" lang="en" hreflang="en" aria-current="page" class="flex items-center justify-between px-4 py-2 text-sm text-primary-900 font-semibold">English <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg></a>
+            <a href="pt-br/delete-account.html" lang="pt-BR" hreflang="pt-BR" class="flex items-center justify-between px-4 py-2 text-sm transition text-primary-600 hover:bg-primary-50 hover:text-primary-900">Português</a>
+          </div>
+        </details>
       </nav>
     </div>
   </header>
@@ -162,5 +168,14 @@
       </div>
     </div>
   </footer>
+  <script>
+    document.addEventListener('click', (event) => {
+      document.querySelectorAll('details[data-language-menu][open]').forEach((menu) => {
+        if (!menu.contains(event.target)) {
+          menu.removeAttribute('open');
+        }
+      });
+    });
+  </script>
 </body>
 </html>
