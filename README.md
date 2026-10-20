@@ -11,7 +11,6 @@ Built with [Astro](https://astro.build) (static output) and Tailwind CSS 4, usin
 | `bun run dev` | Local dev server with live reload |
 | `bun run build` | Type-check (`astro check`) and build the site into `dist/` |
 | `bun run preview` | Serve the built `dist/` locally |
-| `bun run check:urls` | Confirm every public URL still resolves to a file in `dist/` |
 
 ## Structure
 - `src/pages/` — one file per page; `src/pages/pt-br/` holds the Portuguese versions
@@ -23,6 +22,9 @@ Built with [Astro](https://astro.build) (static output) and Tailwind CSS 4, usin
 - `src/components/` — header, footer, store buttons, optimized screenshots
 - `src/i18n.ts` — header/footer strings for each language
 - `public/` — files served as-is at the same URLs (favicon, Open Graph image, logos)
+
+> **Don't rename or remove** `/privacy`, `/terms`, `/support` or `/delete-account` (or their `/pt-br` versions).
+> These URLs are registered in App Store Connect and Google Play Console.
 
 ## Deploy
 Hosted on Vercel (project `wave-check-website`), which builds directly from this repo's root.

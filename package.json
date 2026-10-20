@@ -9,8 +9,7 @@
     "dev": "astro dev",
     "check": "astro check",
     "build": "astro check && astro build",
-    "preview": "astro preview",
-    "check:urls": "bun scripts/check-urls.ts"
+    "preview": "astro preview"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.3.3",
@@ -19,7 +18,6 @@
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.11",
-    "@types/bun": "^1.4.3",
     "typescript": "^6"
   }
 }
