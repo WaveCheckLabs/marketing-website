@@ -21,7 +21,8 @@ Built with [Astro](https://astro.build) (static output) and Tailwind CSS 4, usin
 - `src/layouts/Layout.astro` — `<head>`, header and footer shared by every page except `share`
 - `src/components/` — header, footer, store buttons, optimized screenshots
 - `src/i18n.ts` — header/footer strings for each language
-- `public/` — files served as-is at the same URLs (favicon, Open Graph image, logos)
+- `src/assets/` — logos, store icons and app screenshots, resized and converted to AVIF/WebP at build time
+- `public/` — files served as-is at fixed URLs (favicon, Open Graph image)
 
 > **Don't rename or remove** `/privacy`, `/terms`, `/support` or `/delete-account` (or their `/pt-br` versions).
 > These URLs are registered in App Store Connect and Google Play Console.

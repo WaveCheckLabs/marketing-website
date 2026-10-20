@@ -1,6 +1,9 @@
 ---
+import { Image } from 'astro:assets';
 import { getRelativeLocaleUrl } from 'astro:i18n';
 
+import logoBlack from '../assets/logos/black.png';
+import logoWhite from '../assets/logos/white.png';
 import { translations, type Locale } from '../i18n';
 
 interface Props {
@@ -26,7 +29,7 @@ const linkClass = dark ? 'hover:text-white transition' : 'hover:text-primary-900
   <footer class="border-t border-white/10 bg-black">
     <div class="max-w-6xl mx-auto px-6 py-12 flex flex-col sm:flex-row gap-8 sm:items-center sm:justify-between">
       <div class="flex items-center gap-3">
-        <img src="/assets/logo-white.png" alt="WaveCheck" class="h-7 w-auto">
+        <Image src={logoWhite} alt="WaveCheck" width={28} densities={[1, 2, 3]} class="h-7 w-auto" />
         <div>
           <p class="font-bold">WaveCheck</p>
           <p class="text-xs text-primary-500">{t.tagline}</p>
@@ -59,7 +62,7 @@ const linkClass = dark ? 'hover:text-white transition' : 'hover:text-primary-900
   <footer class="border-t border-primary-100 bg-white">
     <div class="max-w-5xl mx-auto px-6 py-10 flex flex-col sm:flex-row gap-6 sm:items-center sm:justify-between">
       <div class="flex items-center gap-3">
-        <img src="/assets/logo-black.png" alt="WaveCheck" class="h-6 w-auto">
+        <Image src={logoBlack} alt="WaveCheck" width={24} densities={[1, 2, 3]} class="h-6 w-auto" />
         <p class="text-sm text-primary-500">&copy; 2026 Vinicius Teixeira Dias. {t.rights}</p>
       </div>
 
