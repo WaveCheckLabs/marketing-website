@@ -1,0 +1,27 @@
+{
+  "name": "wavecheck-marketing-website",
+  "type": "module",
+  "private": true,
+  "engines": {
+    "node": ">=22.22.0"
+  },
+  "scripts": {
+    "dev": "astro dev",
+    "check": "astro check",
+    "build": "astro check && astro build",
+    "preview": "astro preview",
+    "check:parity": "bun scripts/check-parity.ts",
+    "check:urls": "bun scripts/check-urls.ts"
+  },
+  "dependencies": {
+    "@tailwindcss/vite": "^4.3.3",
+    "astro": "^7.4.1",
+    "tailwindcss": "^4.3.3"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.11",
+    "@types/bun": "^1.4.3",
+    "cheerio": "^1.2.0",
+    "typescript": "^6"
+  }
+}

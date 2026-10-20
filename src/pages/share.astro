@@ -1,3 +1,6 @@
+---
+import '../styles/global.css';
+---
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,29 +24,14 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: { sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'] },
-          colors: {
-            primary: { 50:'#f9fafb', 100:'#f3f4f6', 200:'#e5e7eb', 300:'#d1d5db', 400:'#9ca3af', 500:'#6b7280', 600:'#4b5563', 700:'#374151', 800:'#1f2937', 900:'#111827' },
-            premium: { 50:'#fffbeb', 100:'#fef3c7', 200:'#fde68a', 300:'#fcd34d', 400:'#fbbf24', 500:'#f59e0b', 600:'#d97706' }
-          }
-        }
-      }
-    }
-  </script>
-  <style>
-    body { font-family: 'Inter', system-ui, -apple-system, sans-serif; -webkit-font-smoothing: antialiased; }
+  <style is:inline>
     @keyframes pulse-ring { 0% { transform: scale(0.8); opacity: 0.6; } 100% { transform: scale(1.6); opacity: 0; } }
     .pulse-ring::after { content: ''; position: absolute; inset: 0; border-radius: 9999px; border: 2px solid #f59e0b; animation: pulse-ring 1.6s ease-out infinite; }
   </style>
-  <script>
+  <script is:inline>
     window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
   </script>
-  <script defer src="/_vercel/insights/script.js"></script>
+  <script is:inline defer src="/_vercel/insights/script.js"></script>
 </head>
 <body class="bg-black text-white min-h-screen flex flex-col">
   <main class="flex-1 flex items-center justify-center px-6 py-12">
@@ -78,7 +66,7 @@
     </div>
   </main>
 
-  <script>
+  <script is:inline>
     var APP_STORE_URL = "https://apps.apple.com/au/app/wavecheck/id6757846707";
     var PLAY_STORE_URL = "https://play.google.com/store/apps/details?id=com.viniciusdias.wavecheck";
     var storeUrl = /android/i.test(navigator.userAgent) ? PLAY_STORE_URL : APP_STORE_URL;

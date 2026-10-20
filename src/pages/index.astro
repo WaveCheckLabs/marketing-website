@@ -1,83 +1,33 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>WaveCheck | Download Today</title>
-  <meta name="description" content="The fastest way to know what the surf is doing right now — straight from the surfers at the break. Real photos, real wave size, real wind. Posted by real surfers.">
-  <meta name="theme-color" content="#000000">
-  <link rel="canonical" href="https://wavecheck.app/">
-  <link rel="alternate" hreflang="en" href="https://wavecheck.app/">
-  <link rel="alternate" hreflang="pt-BR" href="https://wavecheck.app/pt-br/">
-  <link rel="alternate" hreflang="x-default" href="https://wavecheck.app/">
-  <link rel="icon" href="favicon.png" type="image/png">
+---
+import feed from '../assets/screenshots/feed.png';
+import post from '../assets/screenshots/post.png';
+import profile from '../assets/screenshots/profile.png';
+import Screenshot from '../components/Screenshot.astro';
+import StoreButtons from '../components/StoreButtons.astro';
+import Layout from '../layouts/Layout.astro';
 
-  <meta property="og:type" content="website">
-  <meta property="og:site_name" content="WaveCheck">
-  <meta property="og:title" content="WaveCheck — Live surf reports from local surfers">
-  <meta property="og:description" content="Real-time surf conditions posted by the community. Wave size, wind, weather — straight from surfers in the water.">
-  <meta property="og:url" content="https://wavecheck.app/">
-  <meta property="og:image" content="https://wavecheck.app/og-image.png">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="WaveCheck — Live surf reports">
+const ogImage = new URL('/og-image.png', Astro.site).href;
+---
+<Layout
+  title="WaveCheck | Download Today"
+  description="The fastest way to know what the surf is doing right now — straight from the surfers at the break. Real photos, real wave size, real wind. Posted by real surfers."
+  ogType="website"
+  ogTitle="WaveCheck — Live surf reports from local surfers"
+  ogDescription="Real-time surf conditions posted by the community. Wave size, wind, weather — straight from surfers in the water."
+  theme="dark"
+  bodyClass="bg-black text-white"
+>
+  <Fragment slot="head">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="WaveCheck — Live surf reports">
 
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="WaveCheck — Live surf reports from local surfers">
-  <meta name="twitter:description" content="Real-time surf conditions posted by the community. Wave size, wind, weather — straight from surfers in the water.">
-  <meta name="twitter:image" content="https://wavecheck.app/og-image.png">
-  <meta name="twitter:image:alt" content="WaveCheck — Live surf reports">
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: { sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'] },
-          colors: {
-            primary: { 50:'#f9fafb', 100:'#f3f4f6', 200:'#e5e7eb', 300:'#d1d5db', 400:'#9ca3af', 500:'#6b7280', 600:'#4b5563', 700:'#374151', 800:'#1f2937', 900:'#111827' },
-            premium: { 50:'#fffbeb', 100:'#fef3c7', 200:'#fde68a', 300:'#fcd34d', 400:'#fbbf24', 500:'#f59e0b', 600:'#d97706' }
-          }
-        }
-      }
-    }
-  </script>
-  <style>
-    html { scroll-behavior: smooth; }
-    body { font-family: 'Inter', system-ui, -apple-system, sans-serif; -webkit-font-smoothing: antialiased; }
-    .no-scrollbar::-webkit-scrollbar { display: none; }
-    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-  </style>
-  <script>
-    window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
-  </script>
-  <script defer src="/_vercel/insights/script.js"></script>
-</head>
-<body class="bg-black text-white">
-  <header class="absolute top-0 inset-x-0 z-20">
-    <div class="max-w-6xl mx-auto px-6 py-5 flex items-center justify-between">
-      <a href="index.html" class="flex items-center gap-2">
-        <img src="assets/logo-white.png" alt="WaveCheck" class="h-8 w-auto">
-        <span class="hidden sm:inline text-lg font-bold tracking-tight">WaveCheck</span>
-      </a>
-      <nav class="flex items-center gap-4 sm:gap-6 text-sm text-primary-300">
-        <a href="support.html" class="hover:text-white transition">Support</a>
-        <a href="privacy.html" class="hover:text-white transition">Privacy</a>
-        <a href="terms.html" class="hover:text-white transition">Terms</a>
-        <details class="relative" data-language-menu>
-          <summary aria-label="Language" title="Language" class="list-none [&::-webkit-details-marker]:hidden cursor-pointer flex items-center p-1 rounded-md transition hover:text-white"><svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 21l5.25-11.25L21 21m-9-3h7.5M3 5.621a48.474 48.474 0 016-.371m0 0c1.12 0 2.233.038 3.334.114M9 5.25V3m3.334 2.364C11.176 10.658 7.69 15.08 3 17.502m9.334-12.138c.896.061 1.785.147 2.666.257m-4.589 8.495a18.023 18.023 0 01-3.827-5.802"/></svg></summary>
-          <div class="absolute right-0 mt-3 w-44 z-30 py-1 rounded-xl border shadow-lg bg-primary-900 border-white/10 shadow-black/40">
-            <a href="index.html" lang="en" hreflang="en" aria-current="page" class="flex items-center justify-between px-4 py-2 text-sm text-white font-semibold">English <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg></a>
-            <a href="pt-br/index.html" lang="pt-BR" hreflang="pt-BR" class="flex items-center justify-between px-4 py-2 text-sm transition text-primary-300 hover:bg-white/5 hover:text-white">Português</a>
-          </div>
-        </details>
-      </nav>
-    </div>
-  </header>
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="WaveCheck — Live surf reports from local surfers">
+    <meta name="twitter:description" content="Real-time surf conditions posted by the community. Wave size, wind, weather — straight from surfers in the water.">
+    <meta name="twitter:image" content={ogImage}>
+    <meta name="twitter:image:alt" content="WaveCheck — Live surf reports">
+  </Fragment>
 
   <section class="relative overflow-hidden pt-32 pb-24 sm:pt-40 sm:pb-32">
     <div class="absolute inset-0 bg-gradient-to-b from-primary-900 via-black to-black"></div>
@@ -89,31 +39,16 @@
         Live surf reports &middot; from the lineup
       </span>
 
-      <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight leading-[1.05]">
+      <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight leading-[1.05] sm:leading-none">
         What the surf is doing <br>
         <span class="text-premium-400">Right Now</span>
       </h1>
 
-      <p class="mt-6 text-lg sm:text-xl text-primary-300 max-w-2xl mx-auto leading-relaxed">
+      <p class="mt-6 text-lg sm:text-xl text-primary-300 max-w-2xl mx-auto leading-relaxed sm:leading-7">
         WaveCheck is the fastest way to know what's happening at your local break. Real photos, real wave size, real wind. Posted by real surfers, minutes ago.
       </p>
 
-      <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-3">
-        <a href="https://apps.apple.com/au/app/wavecheck/id6757846707" class="inline-flex items-center justify-center gap-3 w-full max-w-xs sm:w-auto sm:min-w-[14rem] px-6 py-3.5 rounded-2xl bg-white text-black font-semibold hover:bg-primary-100 transition shadow-lg shadow-white/10">
-          <img src="assets/apple-icon.png" alt="" class="w-6 h-6">
-          <span class="text-left leading-tight">
-            <span class="block text-[10px] font-medium opacity-70 tracking-wide">Download on the</span>
-            <span class="block text-base font-bold">App Store</span>
-          </span>
-        </a>
-        <a href="https://play.google.com/store/apps/details?id=com.viniciusdias.wavecheck" class="inline-flex items-center justify-center gap-3 w-full max-w-xs sm:w-auto sm:min-w-[14rem] px-6 py-3.5 rounded-2xl bg-primary-800 text-white font-semibold hover:bg-primary-700 transition">
-          <img src="assets/google-play-icon.png" alt="" class="w-6 h-6">
-          <span class="text-left leading-tight">
-            <span class="block text-[10px] font-medium opacity-70 tracking-wide">Get it on</span>
-            <span class="block text-base font-bold">Google Play</span>
-          </span>
-        </a>
-      </div>
+      <StoreButtons size="hero" />
 
       <p class="mt-6 text-sm text-primary-500">Free to download &middot; iOS &amp; Android</p>
     </div>
@@ -130,17 +65,17 @@
       <div id="phoneCarousel" class="flex sm:grid sm:grid-cols-3 sm:gap-10 sm:max-w-4xl sm:mx-auto -mx-6 sm:mx-0 overflow-x-auto sm:overflow-visible snap-x snap-mandatory sm:snap-none pb-12 sm:pb-0 no-scrollbar">
         <div data-slide="0" class="snap-center shrink-0 w-full sm:w-auto sm:shrink px-6 sm:px-0">
           <div class="aspect-[9/19.5] mx-auto max-w-[240px] sm:max-w-none rounded-[2.5rem] bg-primary-900 p-1.5 shadow-2xl shadow-primary-300/40 sm:translate-y-8 overflow-hidden">
-            <img src="assets/screenshots/feed.png" alt="WaveCheck feed of live surf reports" class="block w-full h-full object-cover rounded-[2.2rem]">
+            <Screenshot src={feed} alt="WaveCheck feed of live surf reports" />
           </div>
         </div>
         <div data-slide="1" class="snap-center shrink-0 w-full sm:w-auto sm:shrink px-6 sm:px-0">
           <div class="aspect-[9/19.5] mx-auto max-w-[240px] sm:max-w-none rounded-[2.5rem] bg-primary-900 p-1.5 shadow-2xl shadow-premium-500/30 overflow-hidden">
-            <img src="assets/screenshots/post.png" alt="Post detail showing live conditions at Burleigh Heads" class="block w-full h-full object-cover rounded-[2.2rem]">
+            <Screenshot src={post} alt="Post detail showing live conditions at Burleigh Heads" />
           </div>
         </div>
         <div data-slide="2" class="snap-center shrink-0 w-full sm:w-auto sm:shrink px-6 sm:px-0">
           <div class="aspect-[9/19.5] mx-auto max-w-[240px] sm:max-w-none rounded-[2.5rem] bg-primary-900 p-1.5 shadow-2xl shadow-primary-300/40 sm:translate-y-8 overflow-hidden">
-            <img src="assets/screenshots/profile.png" alt="Surfer profile with XP, post history, and stats" class="block w-full h-full object-cover rounded-[2.2rem]">
+            <Screenshot src={profile} alt="Surfer profile with XP, post history, and stats" />
           </div>
         </div>
       </div>
@@ -259,65 +194,17 @@
     <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-premium-500/5 blur-3xl"></div>
 
     <div class="relative max-w-3xl mx-auto px-6 text-center">
-      <h2 class="text-3xl sm:text-5xl font-extrabold tracking-tight leading-tight">
+      <h2 class="text-3xl sm:text-5xl font-extrabold tracking-tight leading-tight sm:leading-none">
         Catch the perfect wave.
       </h2>
       <p class="mt-5 text-lg text-primary-300 leading-relaxed max-w-xl mx-auto">
         Share live surf reports from your local break, follow surfers you trust, and earn rewards for keeping the lineup informed.
       </p>
-      <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-3">
-        <a href="https://apps.apple.com/au/app/wavecheck/id6757846707" class="inline-flex items-center justify-center gap-3 w-full max-w-xs sm:w-auto sm:min-w-[15rem] px-7 py-4 rounded-2xl bg-white text-black font-semibold hover:bg-primary-100 transition shadow-lg shadow-white/10">
-          <img src="assets/apple-icon.png" alt="" class="w-6 h-6">
-          <span class="text-left leading-tight">
-            <span class="block text-[10px] font-medium opacity-70 tracking-wide">Download on the</span>
-            <span class="block text-base font-bold">App Store</span>
-          </span>
-        </a>
-        <a href="https://play.google.com/store/apps/details?id=com.viniciusdias.wavecheck" class="inline-flex items-center justify-center gap-3 w-full max-w-xs sm:w-auto sm:min-w-[15rem] px-7 py-4 rounded-2xl bg-primary-800 text-white font-semibold hover:bg-primary-700 transition">
-          <img src="assets/google-play-icon.png" alt="" class="w-6 h-6">
-          <span class="text-left leading-tight">
-            <span class="block text-[10px] font-medium opacity-70 tracking-wide">Get it on</span>
-            <span class="block text-base font-bold">Google Play</span>
-          </span>
-        </a>
-      </div>
+      <StoreButtons size="cta" />
     </div>
   </section>
 
-  <footer class="border-t border-white/10 bg-black">
-    <div class="max-w-6xl mx-auto px-6 py-12 flex flex-col sm:flex-row gap-8 sm:items-center sm:justify-between">
-      <div class="flex items-center gap-3">
-        <img src="assets/logo-white.png" alt="WaveCheck" class="h-7 w-auto">
-        <div>
-          <p class="font-bold">WaveCheck</p>
-          <p class="text-xs text-primary-500">Live surf reports &middot; from the lineup</p>
-        </div>
-      </div>
-      <div class="flex flex-col sm:flex-row sm:items-center gap-6">
-        <nav class="flex flex-wrap gap-x-6 gap-y-2 text-sm text-primary-400">
-          <a href="support.html" class="hover:text-white transition">Support</a>
-          <a href="privacy.html" class="hover:text-white transition">Privacy</a>
-          <a href="terms.html" class="hover:text-white transition">Terms</a>
-          <a href="delete-account.html" class="hover:text-white transition">Delete account</a>
-          <a href="mailto:support@wavecheck.app" class="hover:text-white transition">support@wavecheck.app</a>
-        </nav>
-        <a href="https://www.instagram.com/wavecheck.au/" target="_blank" rel="noopener" aria-label="WaveCheck on Instagram" class="shrink-0 self-start sm:self-auto rounded-full border border-white/15 p-2.5 text-primary-400 hover:text-white hover:border-white/40 transition">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="h-5 w-5">
-            <rect x="3" y="3" width="18" height="18" rx="5"></rect>
-            <circle cx="12" cy="12" r="4"></circle>
-            <circle cx="17.2" cy="6.8" r="1.2" fill="currentColor" stroke="none"></circle>
-          </svg>
-        </a>
-      </div>
-    </div>
-    <div class="border-t border-white/5">
-      <div class="max-w-6xl mx-auto px-6 py-5 text-xs text-primary-500">
-        &copy; 2026 <a href="https://viniciusteixeiradias.github.io/" target="_blank" rel="noopener" class="text-primary-300 underline underline-offset-2 decoration-primary-600 hover:text-white hover:decoration-white transition">Vinicius Teixeira Dias</a>. All rights reserved.
-      </div>
-    </div>
-  </footer>
-
-  <script>
+  <script is:inline>
     (function () {
       const carousel = document.getElementById('phoneCarousel');
       const dotsRow = document.getElementById('phoneDots');
@@ -359,14 +246,4 @@
       });
     })();
   </script>
-  <script>
-    document.addEventListener('click', (event) => {
-      document.querySelectorAll('details[data-language-menu][open]').forEach((menu) => {
-        if (!menu.contains(event.target)) {
-          menu.removeAttribute('open');
-        }
-      });
-    });
-  </script>
-</body>
-</html>
+</Layout>
