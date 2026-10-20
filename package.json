@@ -10,7 +10,6 @@
     "check": "astro check",
     "build": "astro check && astro build",
     "preview": "astro preview",
-    "check:parity": "bun scripts/check-parity.ts",
     "check:urls": "bun scripts/check-urls.ts"
   },
   "dependencies": {
@@ -21,7 +20,6 @@
   "devDependencies": {
     "@astrojs/check": "^0.9.11",
     "@types/bun": "^1.4.3",
-    "cheerio": "^1.2.0",
     "typescript": "^6"
   }
 }

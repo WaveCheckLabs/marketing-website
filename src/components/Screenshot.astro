@@ -14,8 +14,8 @@ const { src, alt } = Astro.props;
   alt={alt}
   formats={['avif', 'webp']}
   fallbackFormat="webp"
-  widths={[320, 640]}
+  widths={[320, 640, 960]}
   sizes="(min-width: 640px) 280px, 240px"
-  pictureAttributes={{ class: 'block w-full h-full' }}
-  class="block w-full h-full object-cover rounded-[2.2rem]"
+  pictureAttributes={{ class: 'block' }}
+  class="block w-full h-auto rounded-[1.8rem]"
 />

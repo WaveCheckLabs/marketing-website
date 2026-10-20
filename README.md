@@ -11,7 +11,6 @@ Built with [Astro](https://astro.build) (static output) and Tailwind CSS 4, usin
 | `bun run dev` | Local dev server with live reload |
 | `bun run build` | Type-check (`astro check`) and build the site into `dist/` |
 | `bun run preview` | Serve the built `dist/` locally |
-| `bun run check:parity` | Compare the built pages' text, metadata and links with the original hand-written HTML (commit `9720891`) |
 | `bun run check:urls` | Confirm every public URL still resolves to a file in `dist/` |
 
 ## Structure

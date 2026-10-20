@@ -64,17 +64,17 @@ const ogImage = new URL('/og-image.png', Astro.site).href;
 
       <div id="phoneCarousel" class="flex sm:grid sm:grid-cols-3 sm:gap-10 sm:max-w-4xl sm:mx-auto -mx-6 sm:mx-0 overflow-x-auto sm:overflow-visible snap-x snap-mandatory sm:snap-none pb-12 sm:pb-0 no-scrollbar">
         <div data-slide="0" class="snap-center shrink-0 w-full sm:w-auto sm:shrink px-6 sm:px-0">
-          <div class="aspect-[9/19.5] mx-auto max-w-[240px] sm:max-w-none rounded-[2.5rem] bg-primary-900 p-1.5 shadow-2xl shadow-primary-300/40 sm:translate-y-8 overflow-hidden">
+          <div class="mx-auto max-w-[240px] sm:max-w-none rounded-[2.2rem] bg-primary-900 p-1.5 shadow-2xl shadow-primary-300/40 sm:translate-y-8 overflow-hidden">
             <Screenshot src={feed} alt="WaveCheck feed of live surf reports" />
           </div>
         </div>
         <div data-slide="1" class="snap-center shrink-0 w-full sm:w-auto sm:shrink px-6 sm:px-0">
-          <div class="aspect-[9/19.5] mx-auto max-w-[240px] sm:max-w-none rounded-[2.5rem] bg-primary-900 p-1.5 shadow-2xl shadow-premium-500/30 overflow-hidden">
-            <Screenshot src={post} alt="Post detail showing live conditions at Burleigh Heads" />
+          <div class="mx-auto max-w-[240px] sm:max-w-none rounded-[2.2rem] bg-primary-900 p-1.5 shadow-2xl shadow-premium-500/30 overflow-hidden">
+            <Screenshot src={post} alt="New surf report with a video, location, wave size and wind" />
           </div>
         </div>
         <div data-slide="2" class="snap-center shrink-0 w-full sm:w-auto sm:shrink px-6 sm:px-0">
-          <div class="aspect-[9/19.5] mx-auto max-w-[240px] sm:max-w-none rounded-[2.5rem] bg-primary-900 p-1.5 shadow-2xl shadow-primary-300/40 sm:translate-y-8 overflow-hidden">
+          <div class="mx-auto max-w-[240px] sm:max-w-none rounded-[2.2rem] bg-primary-900 p-1.5 shadow-2xl shadow-primary-300/40 sm:translate-y-8 overflow-hidden">
             <Screenshot src={profile} alt="Surfer profile with XP, post history, and stats" />
           </div>
         </div>
@@ -82,7 +82,7 @@ const ogImage = new URL('/og-image.png', Astro.site).href;
 
       <div id="phoneDots" class="flex sm:hidden justify-center gap-2 mt-6" aria-label="Screenshot navigation">
         <button type="button" data-dot="0" aria-label="Show feed screenshot" class="h-2 w-6 rounded-full bg-primary-900 transition-all duration-300"></button>
-        <button type="button" data-dot="1" aria-label="Show post screenshot" class="h-2 w-2 rounded-full bg-primary-300 transition-all duration-300"></button>
+        <button type="button" data-dot="1" aria-label="Show new report screenshot" class="h-2 w-2 rounded-full bg-primary-300 transition-all duration-300"></button>
         <button type="button" data-dot="2" aria-label="Show profile screenshot" class="h-2 w-2 rounded-full bg-primary-300 transition-all duration-300"></button>
       </div>
     </div>
