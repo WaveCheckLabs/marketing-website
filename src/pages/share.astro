@@ -1,3 +1,11 @@
+---
+import { Image } from 'astro:assets';
+
+import appIcon from '../assets/app-icon.png';
+import appleIcon from '../assets/stores/apple.png';
+import googlePlayIcon from '../assets/stores/google-play.png';
+import '../styles/global.css';
+---
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,35 +29,20 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: { sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'] },
-          colors: {
-            primary: { 50:'#f9fafb', 100:'#f3f4f6', 200:'#e5e7eb', 300:'#d1d5db', 400:'#9ca3af', 500:'#6b7280', 600:'#4b5563', 700:'#374151', 800:'#1f2937', 900:'#111827' },
-            premium: { 50:'#fffbeb', 100:'#fef3c7', 200:'#fde68a', 300:'#fcd34d', 400:'#fbbf24', 500:'#f59e0b', 600:'#d97706' }
-          }
-        }
-      }
-    }
-  </script>
-  <style>
-    body { font-family: 'Inter', system-ui, -apple-system, sans-serif; -webkit-font-smoothing: antialiased; }
-    @keyframes pulse-ring { 0% { transform: scale(0.8); opacity: 0.6; } 100% { transform: scale(1.6); opacity: 0; } }
-    .pulse-ring::after { content: ''; position: absolute; inset: 0; border-radius: 9999px; border: 2px solid #f59e0b; animation: pulse-ring 1.6s ease-out infinite; }
+  <style is:inline>
+    @keyframes pulse-ring { 0% { transform: scale(1); opacity: 0.6; } 100% { transform: scale(1.5); opacity: 0; } }
+    .pulse-ring::after { content: ''; position: absolute; inset: 0; z-index: -1; border-radius: 1.5rem; border: 2px solid #f59e0b; animation: pulse-ring 1.6s ease-out infinite; }
   </style>
-  <script>
+  <script is:inline>
     window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
   </script>
-  <script defer src="/_vercel/insights/script.js"></script>
+  <script is:inline defer src="/_vercel/insights/script.js"></script>
 </head>
 <body class="bg-black text-white min-h-screen flex flex-col">
   <main class="flex-1 flex items-center justify-center px-6 py-12">
     <div class="max-w-md w-full text-center">
-      <div class="relative inline-flex items-center justify-center w-20 h-20 rounded-3xl bg-premium-500/10 mb-6 pulse-ring">
-        <img src="/assets/logo-white.png" alt="WaveCheck" class="w-12 h-12">
+      <div class="relative isolate inline-flex w-20 h-20 mb-6 pulse-ring">
+        <Image src={appIcon} alt="WaveCheck" width={80} densities={[1, 2, 3]} loading="eager" class="w-20 h-20 rounded-3xl" />
       </div>
 
       <h1 class="text-2xl sm:text-3xl font-bold tracking-tight">Opening WaveCheck&hellip;</h1>
@@ -57,14 +50,14 @@
 
       <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-3">
         <a href="https://apps.apple.com/au/app/wavecheck/id6757846707" class="inline-flex items-center justify-center gap-3 w-full max-w-xs sm:w-auto sm:min-w-[14rem] px-6 py-3.5 rounded-2xl bg-white text-black font-semibold hover:bg-primary-100 transition shadow-lg shadow-white/10">
-          <img src="/assets/apple-icon.png" alt="" class="w-6 h-6">
+          <Image src={appleIcon} alt="" width={24} densities={[1, 2, 3]} loading="eager" class="w-6 h-6" />
           <span class="text-left leading-tight">
             <span class="block text-[10px] font-medium opacity-70 tracking-wide">Download on the</span>
             <span class="block text-base font-bold">App Store</span>
           </span>
         </a>
         <a href="https://play.google.com/store/apps/details?id=com.viniciusdias.wavecheck" class="inline-flex items-center justify-center gap-3 w-full max-w-xs sm:w-auto sm:min-w-[14rem] px-6 py-3.5 rounded-2xl bg-primary-800 text-white font-semibold hover:bg-primary-700 transition">
-          <img src="/assets/google-play-icon.png" alt="" class="w-6 h-6">
+          <Image src={googlePlayIcon} alt="" width={24} densities={[1, 2, 3]} loading="eager" class="w-6 h-6" />
           <span class="text-left leading-tight">
             <span class="block text-[10px] font-medium opacity-70 uppercase tracking-wider">Get it on</span>
             <span class="block text-base font-bold">Google Play</span>
@@ -78,7 +71,7 @@
     </div>
   </main>
 
-  <script>
+  <script is:inline>
     var APP_STORE_URL = "https://apps.apple.com/au/app/wavecheck/id6757846707";
     var PLAY_STORE_URL = "https://play.google.com/store/apps/details?id=com.viniciusdias.wavecheck";
     var storeUrl = /android/i.test(navigator.userAgent) ? PLAY_STORE_URL : APP_STORE_URL;

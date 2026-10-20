@@ -1,0 +1,80 @@
+---
+import { Image } from 'astro:assets';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+
+import logoBlack from '../assets/logos/black.png';
+import logoWhite from '../assets/logos/white.png';
+import { translations, type Locale } from '../i18n';
+
+interface Props {
+  locale: Locale;
+  /** The current page's path in every locale, e.g. '/privacy'. */
+  pathWithoutLocale: string;
+  theme: 'dark' | 'light';
+}
+
+const { locale, pathWithoutLocale, theme } = Astro.props;
+
+const t = translations[locale];
+const dark = theme === 'dark';
+
+const links = [
+  { path: '/support', label: t.support },
+  { path: '/privacy', label: t.privacy },
+  { path: '/terms', label: t.terms },
+];
+
+const linkClass = (linkPath: string) => {
+  if (dark) {
+    return 'hover:text-white transition';
+  }
+
+  return linkPath === pathWithoutLocale ? 'text-primary-900 font-semibold' : 'hover:text-primary-900 transition';
+};
+
+const languages = (Object.keys(translations) as Locale[]).map((code) => {
+  return {
+    href: getRelativeLocaleUrl(code, pathWithoutLocale),
+    lang: translations[code].lang,
+    name: translations[code].languageName,
+    current: code === locale,
+  };
+});
+
+const languageClass = (current: boolean) => {
+  if (current) {
+    return dark ? 'text-white font-semibold' : 'text-primary-900 font-semibold';
+  }
+
+  return dark
+    ? 'transition text-primary-300 hover:bg-white/5 hover:text-white'
+    : 'transition text-primary-600 hover:bg-primary-50 hover:text-primary-900';
+};
+---
+<header class={dark ? 'absolute top-0 inset-x-0 z-20' : 'border-b border-primary-100 bg-white'}>
+  <div class:list={['mx-auto px-6 py-5 flex items-center justify-between', dark ? 'max-w-6xl' : 'max-w-5xl']}>
+    <a href={getRelativeLocaleUrl(locale)} class="flex items-center gap-2">
+      <Image src={dark ? logoWhite : logoBlack} alt="WaveCheck" width={32} densities={[1, 2, 3]} loading="eager" class="h-8 w-auto" />
+      <span class="hidden sm:inline text-lg font-bold tracking-tight">WaveCheck</span>
+    </a>
+
+    <nav class:list={['flex items-center gap-4 sm:gap-6 text-sm', dark ? 'text-primary-300' : 'text-primary-600']}>
+      {links.map((link) => (
+        <a href={getRelativeLocaleUrl(locale, link.path)} class={linkClass(link.path)}>{link.label}</a>
+      ))}
+
+      <details class="relative" data-language-menu>
+        <summary aria-label={t.language} title={t.language} class:list={['list-none [&::-webkit-details-marker]:hidden cursor-pointer flex items-center p-1 rounded-md transition', dark ? 'hover:text-white' : 'hover:text-primary-900']}><svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 21l5.25-11.25L21 21m-9-3h7.5M3 5.621a48.474 48.474 0 016-.371m0 0c1.12 0 2.233.038 3.334.114M9 5.25V3m3.334 2.364C11.176 10.658 7.69 15.08 3 17.502m9.334-12.138c.896.061 1.785.147 2.666.257m-4.589 8.495a18.023 18.023 0 01-3.827-5.802"/></svg></summary>
+
+        <div class:list={['absolute right-0 mt-3 w-44 z-30 py-1 rounded-xl border shadow-lg', dark ? 'bg-primary-900 border-white/10 shadow-black/40' : 'bg-white border-primary-100 shadow-primary-900/10']}>
+          {languages.map((language) => (
+            <a href={language.href} lang={language.lang} hreflang={language.lang} aria-current={language.current ? 'page' : undefined} class:list={['flex items-center justify-between px-4 py-2 text-sm', languageClass(language.current)]}>
+              {language.name}
+              {language.current && <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>}
+            </a>
+          ))}
+        </div>
+      </details>
+    </nav>
+  </div>
+</header>
