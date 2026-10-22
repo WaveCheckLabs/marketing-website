@@ -27,7 +27,7 @@ const linkClass = dark ? 'hover:text-accent transition' : 'hover:text-primary-90
 ---
 {dark ? (
   <footer class="border-t border-white/10">
-    <div class="max-w-6xl mx-auto px-6 py-12 flex flex-col sm:flex-row gap-8 sm:items-center sm:justify-between">
+    <div class="max-w-6xl mx-auto px-6 py-12 grid grid-cols-[1fr_auto] items-center gap-x-4 gap-y-8 sm:flex sm:gap-6">
       <div class="flex items-center gap-3">
         <Image src={logoWhite} alt="WaveCheck" width={28} densities={[1, 2, 3]} class="h-7 w-auto" />
         <div>
@@ -36,20 +36,18 @@ const linkClass = dark ? 'hover:text-accent transition' : 'hover:text-primary-90
         </div>
       </div>
 
-      <div class="flex flex-col sm:flex-row sm:items-center gap-6">
-        <nav class="flex flex-wrap gap-x-6 gap-y-2 text-sm">
-          {links.map((link) => <a href={getRelativeLocaleUrl(locale, link.path)} class={linkClass}>{link.label}</a>)}
-          <a href="mailto:support@wavecheck.app" class={linkClass}>support@wavecheck.app</a>
-        </nav>
+      <nav class="col-span-2 order-last grid grid-cols-2 gap-x-6 text-sm sm:order-none sm:ml-auto sm:flex sm:flex-wrap">
+        {links.map((link) => <a href={getRelativeLocaleUrl(locale, link.path)} class:list={['py-2 sm:py-0', linkClass]}>{link.label}</a>)}
+        <a href="mailto:support@wavecheck.app" class:list={['col-span-2 py-2 sm:py-0', linkClass]}>support@wavecheck.app</a>
+      </nav>
 
-        <a href="https://www.instagram.com/wavecheck.au/" target="_blank" rel="noopener" aria-label={t.instagram} class="shrink-0 self-start sm:self-auto rounded-full border border-white/15 p-2.5 hover:text-accent hover:border-accent transition">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="h-5 w-5">
-            <rect x="3" y="3" width="18" height="18" rx="5"></rect>
-            <circle cx="12" cy="12" r="4"></circle>
-            <circle cx="17.2" cy="6.8" r="1.2" fill="currentColor" stroke="none"></circle>
-          </svg>
-        </a>
-      </div>
+      <a href="https://www.instagram.com/wavecheck.au/" target="_blank" rel="noopener" aria-label={t.instagram} class="shrink-0 rounded-full border border-white/15 p-2.5 hover:text-accent hover:border-accent transition">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="h-5 w-5">
+          <rect x="3" y="3" width="18" height="18" rx="5"></rect>
+          <circle cx="12" cy="12" r="4"></circle>
+          <circle cx="17.2" cy="6.8" r="1.2" fill="currentColor" stroke="none"></circle>
+        </svg>
+      </a>
     </div>
 
     <div class="border-t border-white/5">

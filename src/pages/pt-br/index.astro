@@ -33,9 +33,9 @@ const ogImageAlt = 'WaveCheck, reports de surf ao vivo';
     <meta name="twitter:image:alt" content={ogImageAlt}>
   </Fragment>
 
-  <section class="max-w-6xl mx-auto px-6 pt-8 pb-20 grid lg:grid-cols-2 gap-12 items-center">
+  <section class="max-w-6xl mx-auto px-6 pt-8 pb-20 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
     <div>
-      <h1 class="font-display text-5xl sm:text-7xl font-bold tracking-tight leading-[0.95]"><span class="text-accent">Como está o mar</span><br>agora?</h1>
+      <h1 class="font-condensed uppercase text-[2.5rem] sm:text-7xl leading-[0.9]"><span class="text-accent">Como está o mar</span><br>agora?</h1>
       <p class="mt-6 text-lg max-w-md leading-relaxed">Reports de surf ao vivo, direto de surfistas no pico, postados há poucos minutos. Vídeo real, tamanho real, vento real. Sem modelos de previsão.</p>
       <StoreButtons placement="hero" class="mt-10" />
     </div>
@@ -44,7 +44,7 @@ const ogImageAlt = 'WaveCheck, reports de surf ao vivo';
   </section>
 
   <ForecastVsReport>
-    <Fragment slot="title"><span class="text-accent">A previsão chuta.</span><br>O surfista sabe.</Fragment>
+    <Fragment slot="title"><span class="text-accent">A previsão chuta</span><br>O surfista sabe.</Fragment>
   </ForecastVsReport>
 
   <CoastSection />
