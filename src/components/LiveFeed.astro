@@ -1,11 +1,11 @@
 ---
 import { Image } from 'astro:assets';
 
-import burleigh from '../assets/photos/burleigh.jpg';
+import burleighHeads from '../assets/photos/burleigh-heads.jpg';
+import duranbahFernanda from '../assets/photos/duranbah-fernanda.png';
 import kirra from '../assets/photos/kirra.jpg';
+import mainBeach from '../assets/photos/main-beach.png';
 import snapperRocks from '../assets/photos/snapper-rocks.jpg';
-import sunrise from '../assets/photos/sunrise.png';
-import wave from '../assets/photos/wave.png';
 import { type Locale } from '../i18n';
 
 const copy = {
@@ -47,10 +47,10 @@ const windStyles = {
 };
 
 const reports = [
-  { surfer: 'Fernanda', spot: 'Duranbah', minutes: 4, size: '2-3ft', wind: 'offshore', photo: wave },
+  { surfer: 'Fernanda', spot: 'Duranbah', minutes: 4, size: '2-3ft', wind: 'offshore', photo: duranbahFernanda },
   { surfer: 'Jack', spot: 'Snapper Rocks', minutes: 9, size: '3-4ft', wind: 'offshore', photo: snapperRocks },
-  { surfer: 'Vinicius', spot: 'Main Beach', minutes: 14, size: '1-2ft', wind: 'offshore', photo: sunrise },
-  { surfer: 'Mia', spot: 'Burleigh Heads', minutes: 21, size: '1-2ft', wind: 'crossShore', photo: burleigh },
+  { surfer: 'Vinicius', spot: 'Main Beach', minutes: 14, size: '1-2ft', wind: 'offshore', photo: mainBeach },
+  { surfer: 'Mia', spot: 'Burleigh Heads', minutes: 21, size: '1-2ft', wind: 'crossShore', photo: burleighHeads },
   { surfer: 'Tom', spot: 'Kirra', minutes: 33, size: '2-3ft', wind: 'offshore', photo: kirra, focus: 'bottom' },
 ] as const;
 ---
