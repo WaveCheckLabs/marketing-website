@@ -2,7 +2,7 @@ import tailwindcss from '@tailwindcss/vite';
 import { defineConfig } from 'astro/config';
 
 export default defineConfig({
-  site: 'https://wavecheck.app',
+  site: 'https://www.wavecheck.app',
   output: 'static',
   trailingSlash: 'never',
 

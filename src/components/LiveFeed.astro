@@ -1,0 +1,94 @@
+---
+import { Image } from 'astro:assets';
+
+import burleigh from '../assets/photos/burleigh.jpg';
+import kirra from '../assets/photos/kirra.jpg';
+import snapperRocks from '../assets/photos/snapper-rocks.jpg';
+import sunrise from '../assets/photos/sunrise.png';
+import wave from '../assets/photos/wave.png';
+import { type Locale } from '../i18n';
+
+const copy = {
+  en: {
+    label: 'Example reports',
+    ago: (minutes: number) => {
+      return `${minutes} min ago`;
+    },
+    wind: { offshore: 'Offshore', crossShore: 'Cross-shore' },
+    sizes: { '1-2ft': '1-2ft', '2-3ft': '2-3ft', '3-4ft': '3-4ft' },
+    notes: {
+      Duranbah: 'Clean, swell arriving',
+      'Snapper Rocks': 'Crowded but worth it, sets wrapping the point',
+      'Main Beach': 'Glassy at sunrise',
+      'Burleigh Heads': 'Fun lefts off the point',
+      Kirra: 'Glassy lines, long rides',
+    },
+  },
+  'pt-br': {
+    label: 'Reports de exemplo',
+    ago: (minutes: number) => {
+      return `há ${minutes} min`;
+    },
+    wind: { offshore: 'Terral', crossShore: 'Lateral' },
+    sizes: { '1-2ft': '0,3-0,6m', '2-3ft': '0,6-1m', '3-4ft': '1-1,2m' },
+    notes: {
+      Duranbah: 'Liso, swell entrando',
+      'Snapper Rocks': 'Crowd, mas vale a pena, séries contornando a ponta',
+      'Main Beach': 'Espelhado no nascer do sol',
+      'Burleigh Heads': 'Esquerdas divertidas na ponta',
+      Kirra: 'Linhas espelhadas, ondas longas',
+    },
+  },
+}[Astro.currentLocale as Locale];
+
+const windStyles = {
+  offshore: 'bg-green-100 text-green-700',
+  crossShore: 'bg-yellow-100 text-yellow-700',
+};
+
+const reports = [
+  { surfer: 'Fernanda', spot: 'Duranbah', minutes: 4, size: '2-3ft', wind: 'offshore', photo: wave },
+  { surfer: 'Jack', spot: 'Snapper Rocks', minutes: 9, size: '3-4ft', wind: 'offshore', photo: snapperRocks },
+  { surfer: 'Vinicius', spot: 'Main Beach', minutes: 14, size: '1-2ft', wind: 'offshore', photo: sunrise },
+  { surfer: 'Mia', spot: 'Burleigh Heads', minutes: 21, size: '1-2ft', wind: 'crossShore', photo: burleigh },
+  { surfer: 'Tom', spot: 'Kirra', minutes: 33, size: '2-3ft', wind: 'offshore', photo: kirra, focus: 'bottom' },
+] as const;
+---
+<div>
+  <p class="font-mono text-xs uppercase tracking-widest">{copy.label}</p>
+
+  <div class="mt-4 relative h-[520px] overflow-hidden [mask-image:linear-gradient(to_bottom,transparent,black_12%,black_88%,transparent)]">
+    <div class="feed space-y-4">
+      {[...reports, ...reports].map((report, index) => (
+        <article class="rounded-2xl bg-white/[0.05] ring-1 ring-white/10 p-4 flex gap-4 backdrop-blur" aria-hidden={index >= reports.length ? 'true' : undefined}>
+          <Image src={report.photo} alt="" width={112} height={112} fit="cover" position={'focus' in report ? report.focus : 'center'} densities={[1, 2]} class="w-28 h-28 rounded-xl object-cover shrink-0" />
+          <div class="min-w-0">
+            <p class="font-semibold">{report.spot}</p>
+            <p class="font-mono text-xs">{report.surfer} · {copy.ago(report.minutes)}</p>
+            <div class="mt-3 flex flex-wrap gap-2 font-mono text-xs">
+              <span class="px-2 py-1 rounded-md bg-blue-100 text-blue-700">{copy.sizes[report.size]}</span>
+              <span class:list={['px-2 py-1 rounded-md', windStyles[report.wind]]}>{copy.wind[report.wind]}</span>
+            </div>
+            <p class="mt-2 text-sm truncate">{copy.notes[report.spot]}</p>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</div>
+
+<style>
+  .feed {
+    animation: scroll-up 32s linear infinite;
+  }
+
+  @keyframes scroll-up {
+    to { transform: translateY(calc(-50% - 0.5rem)); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .feed {
+      animation: none;
+    }
+  }
+</style>

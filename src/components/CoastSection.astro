@@ -1,0 +1,37 @@
+---
+import { type Locale } from '../i18n';
+import PhoneScreens from './PhoneScreens.astro';
+
+const copy = {
+  en: {
+    title: ['The whole coast', 'in your pocket.'],
+    points: [
+      { title: 'See it before you drive', text: 'Live video from your break, so the trip is never wasted.' },
+      { title: 'Follow surfers you trust', text: 'Build a feed of locals whose calls match what you find out there.' },
+      { title: 'Post in seconds', text: 'Video, size and wind, done before your wetsuit is on.' },
+    ],
+  },
+  'pt-br': {
+    title: ['O litoral inteiro', 'no seu bolso.'],
+    points: [
+      { title: 'Veja antes de sair de casa', text: 'Vídeo ao vivo do seu pico, para nunca perder a viagem.' },
+      { title: 'Siga surfistas em quem você confia', text: 'Monte um feed com os locais cujos reports batem com o que você encontra no mar.' },
+      { title: 'Publique em segundos', text: 'Vídeo, tamanho e vento, antes mesmo de vestir a roupa de borracha.' },
+    ],
+  },
+}[Astro.currentLocale as Locale];
+---
+<section class="max-w-7xl mx-auto px-6 py-24 sm:py-32 grid lg:grid-cols-[0.8fr_1.2fr] gap-16 items-center">
+  <PhoneScreens />
+  <div>
+    <h2 class="font-condensed uppercase text-5xl sm:text-7xl leading-[0.9]">{copy.title[0]}<br>{copy.title[1]}</h2>
+    <div class="mt-12 grid gap-8">
+      {copy.points.map((point) => (
+        <div class="border-l-2 border-accent pl-5">
+          <h3 class="text-xl font-bold">{point.title}</h3>
+          <p class="mt-1 leading-relaxed">{point.text}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,31 @@
+---
+import { Image } from 'astro:assets';
+
+import appIcon from '../assets/app-icon.png';
+import { type Locale } from '../i18n';
+import { appStoreUrl, playStoreUrl } from '../stores';
+
+const copy = {
+  en: { subtitle: 'Live surf reports · Free', button: 'Get the app' },
+  'pt-br': { subtitle: 'Reports de surf ao vivo · Grátis', button: 'Baixar o app' },
+}[Astro.currentLocale as Locale];
+
+const stores = [
+  { id: 'app-store', href: appStoreUrl, visibility: 'inline-flex in-data-[platform=android]:hidden' },
+  { id: 'google-play', href: playStoreUrl('sticky-bar'), visibility: 'hidden in-data-[platform=android]:inline-flex' },
+];
+---
+<div class="fixed inset-x-0 bottom-0 z-50 sm:hidden border-t border-white/10 bg-black/85 text-white backdrop-blur-xl">
+  <div class="flex items-center gap-3 px-4 pt-3 pb-[calc(env(safe-area-inset-bottom)+1.25rem)]">
+    <Image src={appIcon} alt="" width={44} densities={[1, 2, 3]} class="w-11 h-11 rounded-xl" />
+
+    <div class="flex-1 min-w-0 leading-tight">
+      <p class="font-bold">WaveCheck</p>
+      <p class="text-xs truncate">{copy.subtitle}</p>
+    </div>
+
+    {stores.map(({ id, href, visibility }) => (
+      <a href={href} data-store={id} data-placement="sticky-bar" class:list={['items-center rounded-full px-5 py-3 text-sm font-bold bg-white text-black', visibility]}>{copy.button}</a>
+    ))}
+  </div>
+</div>
