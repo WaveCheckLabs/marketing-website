@@ -52,7 +52,7 @@ const languageClass = (current: boolean) => {
 };
 ---
 <header class={dark ? 'relative z-20' : 'border-b border-primary-100 bg-white'}>
-  <div class:list={['mx-auto px-6 py-5 flex items-center justify-between', dark ? 'max-w-6xl' : 'max-w-5xl']}>
+  <div class="max-w-6xl mx-auto px-6 py-5 flex items-center justify-between">
     <a href={getRelativeLocaleUrl(locale)} class="flex items-center gap-2">
       <Image src={dark ? logoWhite : logoBlack} alt="WaveCheck" width={48} densities={[1, 2, 3]} loading="eager" class="h-12 sm:h-10 w-auto" />
       <span class="hidden sm:inline text-lg font-bold tracking-tight">WaveCheck</span>
