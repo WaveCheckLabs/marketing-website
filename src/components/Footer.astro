@@ -13,7 +13,7 @@ interface Props {
 
 const { locale, theme } = Astro.props;
 
-const t = translations[locale];
+const t = translations[locale].common;
 
 const links = [
   { path: '/support', label: t.support },

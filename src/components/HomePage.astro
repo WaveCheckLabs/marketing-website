@@ -1,0 +1,60 @@
+---
+import { translations, type Locale } from '../i18n';
+import Layout from '../layouts/Layout.astro';
+import CoastSection from './CoastSection.astro';
+import ForecastVsReport from './ForecastVsReport.astro';
+import LiveFeed from './LiveFeed.astro';
+import PhotoCta from './PhotoCta.astro';
+import StickyDownloadBar from './StickyDownloadBar.astro';
+import StoreButtons from './StoreButtons.astro';
+
+const locale = Astro.currentLocale as Locale;
+const copy = translations[locale].home;
+
+const ogImage = new URL('/og-image.png', Astro.site).href;
+
+/** The pt-br hero is a little wider, so it steps down further on phones to keep each line on one line. */
+const heroSize = {
+  en: 'text-5xl',
+  'pt-br': 'text-[2.5rem]',
+}[locale];
+---
+<Layout
+  title={copy.title}
+  description={copy.description}
+  ogType="website"
+  ogTitle={copy.ogTitle}
+  ogDescription={copy.ogDescription}
+  theme="dark"
+  bodyClass="bg-page text-white pb-28 sm:pb-0"
+>
+  <Fragment slot="head">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content={copy.ogImageAlt}>
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content={copy.ogTitle}>
+    <meta name="twitter:description" content={copy.ogDescription}>
+    <meta name="twitter:image" content={ogImage}>
+    <meta name="twitter:image:alt" content={copy.ogImageAlt}>
+  </Fragment>
+
+  <section class="max-w-6xl mx-auto px-6 pt-8 pb-20 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+    <div>
+      <h1 class:list={['font-condensed uppercase sm:text-7xl leading-[0.9]', heroSize]}><span class="text-accent">{copy.heroTitle[0]}</span><br>{copy.heroTitle[1]}</h1>
+      <p class="mt-6 text-lg max-w-md leading-relaxed">{copy.heroText}</p>
+      <StoreButtons placement="hero" class="mt-10" />
+    </div>
+
+    <LiveFeed />
+  </section>
+
+  <ForecastVsReport />
+
+  <CoastSection />
+
+  <PhotoCta />
+
+  <StickyDownloadBar />
+</Layout>

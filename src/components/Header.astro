@@ -15,7 +15,7 @@ interface Props {
 
 const { locale, pathWithoutLocale, theme } = Astro.props;
 
-const t = translations[locale];
+const t = translations[locale].common;
 const dark = theme === 'dark';
 
 const links = [
@@ -35,8 +35,8 @@ const linkClass = (linkPath: string) => {
 const languages = (Object.keys(translations) as Locale[]).map((code) => {
   return {
     href: getRelativeLocaleUrl(code, pathWithoutLocale),
-    lang: translations[code].lang,
-    name: translations[code].languageName,
+    lang: translations[code].common.lang,
+    name: translations[code].common.languageName,
     current: code === locale,
   };
 });

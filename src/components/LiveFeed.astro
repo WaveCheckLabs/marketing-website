@@ -6,40 +6,9 @@ import duranbahFernanda from '../assets/photos/duranbah-fernanda.png';
 import kirra from '../assets/photos/kirra.jpg';
 import mainBeach from '../assets/photos/main-beach.png';
 import snapperRocks from '../assets/photos/snapper-rocks.jpg';
-import { type Locale } from '../i18n';
+import { translations, type Locale } from '../i18n';
 
-const copy = {
-  en: {
-    label: 'Surf reports',
-    ago: (minutes: number) => {
-      return `${minutes} min ago`;
-    },
-    wind: { offshore: 'Offshore', crossShore: 'Cross-shore' },
-    sizes: { '1-2ft': '1-2ft', '2-3ft': '2-3ft', '3-4ft': '3-4ft' },
-    notes: {
-      Duranbah: 'Clean, swell arriving',
-      'Snapper Rocks': 'Crowded but worth it, sets wrapping the point',
-      'Main Beach': 'Glassy at sunrise',
-      'Burleigh Heads': 'Fun lefts off the point',
-      Kirra: 'Glassy lines, long rides',
-    },
-  },
-  'pt-br': {
-    label: 'Reports de surf',
-    ago: (minutes: number) => {
-      return `há ${minutes} min`;
-    },
-    wind: { offshore: 'Terral', crossShore: 'Lateral' },
-    sizes: { '1-2ft': '0,3-0,6m', '2-3ft': '0,6-1m', '3-4ft': '1-1,2m' },
-    notes: {
-      Duranbah: 'Liso, swell entrando',
-      'Snapper Rocks': 'Crowd, mas vale a pena, séries contornando a ponta',
-      'Main Beach': 'Espelhado no nascer do sol',
-      'Burleigh Heads': 'Esquerdas divertidas na ponta',
-      Kirra: 'Linhas espelhadas, ondas longas',
-    },
-  },
-}[Astro.currentLocale as Locale];
+const copy = translations[Astro.currentLocale as Locale].liveFeed;
 
 const windStyles = {
   offshore: 'bg-green-100 text-green-700',

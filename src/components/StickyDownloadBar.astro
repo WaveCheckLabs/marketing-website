@@ -2,13 +2,10 @@
 import { Image } from 'astro:assets';
 
 import appIcon from '../assets/app-icon.png';
-import { type Locale } from '../i18n';
+import { translations, type Locale } from '../i18n';
 import { appStoreUrl, playStoreUrl } from '../stores';
 
-const copy = {
-  en: { subtitle: 'Live surf reports · Free', button: 'Get the app' },
-  'pt-br': { subtitle: 'Reports de surf ao vivo · Grátis', button: 'Baixar o app' },
-}[Astro.currentLocale as Locale];
+const copy = translations[Astro.currentLocale as Locale].stickyDownloadBar;
 
 const stores = [
   { id: 'app-store', href: appStoreUrl, visibility: 'inline-flex in-data-[platform=android]:hidden' },

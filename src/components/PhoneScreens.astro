@@ -4,12 +4,9 @@ import { Picture } from 'astro:assets';
 import feed from '../assets/screenshots/feed.png';
 import post from '../assets/screenshots/post.png';
 import profile from '../assets/screenshots/profile.png';
-import { type Locale } from '../i18n';
+import { translations, type Locale } from '../i18n';
 
-const alt = {
-  en: 'WaveCheck feed of live surf reports',
-  'pt-br': 'Feed do WaveCheck com reports de surf ao vivo',
-}[Astro.currentLocale as Locale];
+const { alt } = translations[Astro.currentLocale as Locale].phoneScreens;
 
 const screens = [feed, post, profile];
 ---
