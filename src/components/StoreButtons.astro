@@ -4,33 +4,35 @@ import { Image } from 'astro:assets';
 import appleIcon from '../assets/stores/apple.png';
 import googlePlayIcon from '../assets/stores/google-play.png';
 import { translations, type Locale } from '../i18n';
+import { appStoreUrl, playStoreUrl } from '../stores';
 
 interface Props {
-  /** 'hero' is the pair at the top of the home page; 'cta' is the slightly larger pair at the bottom. */
-  size: 'hero' | 'cta';
+  /** Where the pair sits on the page, sent with the click event. 'hero' loads its icons eagerly. */
+  placement: 'hero' | 'cta';
+  class?: string;
 }
 
-const { size } = Astro.props;
+const { placement, class: className } = Astro.props;
 
-const t = translations[Astro.currentLocale as Locale];
-const iconLoading = size === 'hero' ? 'eager' : 'lazy';
-const sizeClass = size === 'hero' ? 'sm:min-w-[14rem] px-6 py-3.5' : 'sm:min-w-[15rem] px-7 py-4';
-const buttonClass = `inline-flex items-center justify-center gap-3 w-full max-w-xs sm:w-auto ${sizeClass} rounded-2xl font-semibold transition`;
+const t = translations[Astro.currentLocale as Locale].common;
+
+const appStore = { id: 'app-store', href: appStoreUrl, icon: appleIcon, caption: t.appStore, name: 'App Store' };
+const googlePlay = { id: 'google-play', href: playStoreUrl(placement), icon: googlePlayIcon, caption: t.playStore, name: 'Google Play' };
+
+const buttons = [
+  { ...appStore, style: 'inline-flex in-data-[platform=android]:hidden bg-white text-black hover:bg-primary-100' },
+  { ...googlePlay, style: 'hidden in-data-[platform=android]:inline-flex bg-white text-black hover:bg-primary-100' },
+  { ...googlePlay, style: 'hidden in-data-[platform=desktop]:inline-flex text-white ring-1 ring-white/25 hover:bg-white/10' },
+];
 ---
-<div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-3">
-  <a href="https://apps.apple.com/au/app/wavecheck/id6757846707" class={`${buttonClass} bg-white text-black hover:bg-primary-100 shadow-lg shadow-white/10`}>
-    <Image src={appleIcon} alt="" width={24} densities={[1, 2, 3]} loading={iconLoading} class="w-6 h-6" />
-    <span class="text-left leading-tight">
-      <span class="block text-[10px] font-medium opacity-70 tracking-wide">{t.appStore}</span>
-      <span class="block text-base font-bold">App Store</span>
-    </span>
-  </a>
-
-  <a href="https://play.google.com/store/apps/details?id=com.viniciusdias.wavecheck" class={`${buttonClass} bg-primary-800 text-white hover:bg-primary-700`}>
-    <Image src={googlePlayIcon} alt="" width={24} densities={[1, 2, 3]} loading={iconLoading} class="w-6 h-6" />
-    <span class="text-left leading-tight">
-      <span class="block text-[10px] font-medium opacity-70 tracking-wide">{t.playStore}</span>
-      <span class="block text-base font-bold">Google Play</span>
-    </span>
-  </a>
+<div class:list={['flex flex-col sm:flex-row items-center gap-3', className]}>
+  {buttons.map((button) => (
+    <a href={button.href} data-store={button.id} data-placement={placement} class:list={['items-center justify-center gap-3 w-full max-w-xs sm:w-auto sm:min-w-[13rem] px-6 py-3.5 rounded-2xl font-semibold transition', button.style]}>
+      <Image src={button.icon} alt="" width={24} densities={[1, 2, 3]} loading={placement === 'hero' ? 'eager' : 'lazy'} class="w-6 h-6" />
+      <span class="text-left leading-tight">
+        <span class="block text-[10px] font-medium tracking-wide">{button.caption}</span>
+        <span class="block text-base font-bold">{button.name}</span>
+      </span>
+    </a>
+  ))}
 </div>

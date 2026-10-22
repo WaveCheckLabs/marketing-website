@@ -1,0 +1,58 @@
+---
+import { Picture } from 'astro:assets';
+
+import feed from '../assets/screenshots/feed.png';
+import post from '../assets/screenshots/post.png';
+import profile from '../assets/screenshots/profile.png';
+import { translations, type Locale } from '../i18n';
+
+const { alt } = translations[Astro.currentLocale as Locale].phoneScreens;
+
+const screens = [feed, post, profile];
+---
+<div class="w-[260px] sm:w-[300px] mx-auto rounded-[2.6rem] bg-primary-900 p-2 shadow-2xl">
+  <div class="relative overflow-hidden rounded-[2.1rem]">
+    {screens.map((screen, index) => (
+      <Picture
+        src={screen}
+        alt={index === 0 ? alt : ''}
+        formats={['avif', 'webp']}
+        fallbackFormat="webp"
+        widths={[320, 480, 640, 960]}
+        sizes="(min-width: 640px) 300px, 260px"
+        pictureAttributes={{ class: index === 0 ? 'block' : 'absolute inset-0' }}
+        class="screen block w-full h-auto"
+      />
+    ))}
+  </div>
+</div>
+
+<style>
+  .screen {
+    animation: crossfade 12s infinite backwards;
+  }
+
+  picture:nth-child(2) .screen {
+    animation-delay: 4s;
+  }
+
+  picture:nth-child(3) .screen {
+    animation-delay: 8s;
+  }
+
+  picture:not(:first-child) .screen {
+    opacity: 0;
+  }
+
+  @keyframes crossfade {
+    0% { opacity: 0; }
+    5%, 33% { opacity: 1; }
+    38%, 100% { opacity: 0; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .screen {
+      animation: none;
+    }
+  }
+</style>

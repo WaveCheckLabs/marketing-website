@@ -1,0 +1,59 @@
+---
+import { translations, type Locale } from '../i18n';
+import Layout from '../layouts/Layout.astro';
+
+interface Props {
+  /** Which legal document from the dictionary to render. */
+  page: 'privacy' | 'terms';
+}
+
+const { page } = Astro.props;
+
+const copy = translations[Astro.currentLocale as Locale][page];
+
+/** Splits a dictionary string around its `{email}` placeholders, so the markup can put the support link between the parts. */
+const emailParts = (text: string) => {
+  return text.split('{email}');
+};
+---
+<Layout
+  title={copy.title}
+  description={copy.description}
+  ogType="article"
+  ogTitle={copy.ogTitle}
+  ogDescription={copy.ogDescription}
+  theme="light"
+  bodyClass="bg-white text-primary-900 min-h-screen flex flex-col"
+>
+  <main class="flex-1">
+    <section class="bg-gradient-to-b from-primary-50 to-white">
+      <div class="max-w-3xl mx-auto px-6 pt-12 pb-4 sm:pt-16 sm:pb-6">
+        <p class="text-sm font-semibold text-premium-600 uppercase tracking-wider mb-3">{copy.eyebrow}</p>
+        <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight">{copy.heading}</h1>
+      </div>
+    </section>
+
+    <article class="max-w-3xl mx-auto px-6 pt-2 pb-10 space-y-10">
+      {copy.sections.map((section) => (
+        <section>
+          <h2 class="text-xl font-semibold mb-3">{section.heading}</h2>
+          {section.blocks.map((block, index) => (
+            Array.isArray(block) ? (
+              <ul class="mt-3 space-y-2 text-primary-600 leading-relaxed list-disc pl-5">
+                {block.map((item) => <li>{item}</li>)}
+              </ul>
+            ) : (
+              <p class:list={['text-primary-600 leading-relaxed', index > 0 && 'mt-3']}>
+                {emailParts(block).map((part, partIndex) => (
+                  <Fragment>{partIndex > 0 && <a href="mailto:support@wavecheck.app" class="text-premium-700 underline underline-offset-2 hover:text-primary-900">support@wavecheck.app</a>}{part}</Fragment>
+                ))}
+              </p>
+            )
+          ))}
+        </section>
+      ))}
+
+      <p class="text-xs text-primary-600 pt-4">{copy.lastUpdated}</p>
+    </article>
+  </main>
+</Layout>

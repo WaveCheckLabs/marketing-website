@@ -1,0 +1,20 @@
+---
+import { translations, type Locale } from '../i18n';
+import PhoneScreens from './PhoneScreens.astro';
+
+const copy = translations[Astro.currentLocale as Locale].coastSection;
+---
+<section class="max-w-7xl mx-auto px-6 py-24 sm:py-32 grid grid-cols-1 lg:grid-cols-[0.8fr_1.2fr] gap-16 items-center">
+  <PhoneScreens />
+  <div>
+    <h2 class="font-condensed uppercase text-4xl sm:text-7xl leading-[0.9]">{copy.title[0]}<br>{copy.title[1]}</h2>
+    <div class="mt-12 grid gap-8">
+      {copy.points.map((point) => (
+        <div class="border-l-2 border-accent pl-5">
+          <h3 class="text-xl font-bold">{point.title}</h3>
+          <p class="mt-1 leading-relaxed">{point.text}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

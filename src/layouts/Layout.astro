@@ -12,7 +12,7 @@ interface Props {
   ogType: 'website' | 'article';
   ogTitle: string;
   ogDescription: string;
-  /** 'dark' is the home page look; 'light' is used by support and the legal pages. */
+  /** 'dark' is the home page look and loads its display fonts; 'light' is used by support and the legal pages. */
   theme: 'dark' | 'light';
   bodyClass: string;
 }
@@ -23,15 +23,23 @@ const locale = Astro.currentLocale as Locale;
 const pathWithoutLocale = Astro.routePattern.replace(/^\/pt-br/, '');
 const canonicalUrl = getAbsoluteLocaleUrl(locale, pathWithoutLocale);
 const ogImage = new URL('/og-image.png', Astro.site).href;
+
+const fontFamilies = {
+  dark: 'family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500',
+  light: 'family=Inter:wght@400;500;600;700;800',
+};
+
+const fontsUrl = `https://fonts.googleapis.com/css2?${fontFamilies[theme]}&display=swap`;
 ---
 <!DOCTYPE html>
-<html lang={translations[locale].lang}>
+<html lang={translations[locale].common.lang} data-platform="desktop">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>{title}</title>
   <meta name="description" content={description}>
   <meta name="theme-color" content="#000000">
+  <meta name="apple-itunes-app" content="app-id=6757846707">
   <link rel="canonical" href={canonicalUrl}>
   <link rel="alternate" hreflang="en" href={getAbsoluteLocaleUrl('en', pathWithoutLocale)}>
   <link rel="alternate" hreflang="pt-BR" href={getAbsoluteLocaleUrl('pt-br', pathWithoutLocale)}>
@@ -48,9 +56,17 @@ const ogImage = new URL('/og-image.png', Astro.site).href;
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  {theme === 'dark' && <link rel="preload" as="font" type="font/woff2" href="/fonts/anton-latin.woff2" crossorigin>}
+  <link rel="preload" as="style" href={fontsUrl} onload="this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href={fontsUrl}></noscript>
 
   <script is:inline>
+    if (/iPhone|iPad|iPod/.test(navigator.userAgent)) {
+      document.documentElement.dataset.platform = 'ios';
+    } else if (/Android/.test(navigator.userAgent)) {
+      document.documentElement.dataset.platform = 'android';
+    }
+
     window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
   </script>
   <script is:inline defer src="/_vercel/insights/script.js"></script>
@@ -67,6 +83,12 @@ const ogImage = new URL('/og-image.png', Astro.site).href;
           menu.removeAttribute('open');
         }
       });
+
+      const storeLink = event.target.closest('a[data-store]');
+
+      if (storeLink !== null) {
+        window.va('event', { name: 'Store click', data: { store: storeLink.dataset.store, placement: storeLink.dataset.placement, locale: document.documentElement.lang } });
+      }
     });
   </script>
 </body>
