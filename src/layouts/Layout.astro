@@ -25,7 +25,7 @@ const canonicalUrl = getAbsoluteLocaleUrl(locale, pathWithoutLocale);
 const ogImage = new URL('/og-image.png', Astro.site).href;
 
 const fontFamilies = {
-  dark: 'family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500&family=Anton',
+  dark: 'family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500',
   light: 'family=Inter:wght@400;500;600;700;800',
 };
 
@@ -56,6 +56,7 @@ const fontsUrl = `https://fonts.googleapis.com/css2?${fontFamilies[theme]}&displ
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  {theme === 'dark' && <link rel="preload" as="font" type="font/woff2" href="/fonts/anton-latin.woff2" crossorigin>}
   <link rel="preload" as="style" href={fontsUrl} onload="this.rel='stylesheet'">
   <noscript><link rel="stylesheet" href={fontsUrl}></noscript>
 

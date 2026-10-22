@@ -45,7 +45,7 @@ const emailParts = (text: string) => {
             ) : (
               <p class:list={['text-primary-600 leading-relaxed', index > 0 && 'mt-3']}>
                 {emailParts(block).map((part, partIndex) => (
-                  <Fragment>{partIndex > 0 && <a href="mailto:support@wavecheck.app" class="text-premium-600 hover:underline">support@wavecheck.app</a>}{part}</Fragment>
+                  <Fragment>{partIndex > 0 && <a href="mailto:support@wavecheck.app" class="text-premium-700 underline underline-offset-2 hover:text-primary-900">support@wavecheck.app</a>}{part}</Fragment>
                 ))}
               </p>
             )
@@ -53,7 +53,7 @@ const emailParts = (text: string) => {
         </section>
       ))}
 
-      <p class="text-xs text-primary-400 pt-4">{copy.lastUpdated}</p>
+      <p class="text-xs text-primary-600 pt-4">{copy.lastUpdated}</p>
     </article>
   </main>
 </Layout>

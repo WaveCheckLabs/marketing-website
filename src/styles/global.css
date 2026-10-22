@@ -1,5 +1,13 @@
 @import "tailwindcss";
 
+@font-face {
+  font-family: 'Anton';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/anton-latin.woff2') format('woff2');
+}
+
 @theme {
   --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
   --font-condensed: 'Anton', 'Inter', system-ui, sans-serif;
@@ -26,6 +34,7 @@
   --color-premium-400: #fbbf24;
   --color-premium-500: #f59e0b;
   --color-premium-600: #d97706;
+  --color-premium-700: #b45309;
 
   --color-red-50: #fef2f2;
   --color-red-700: #b91c1c;
