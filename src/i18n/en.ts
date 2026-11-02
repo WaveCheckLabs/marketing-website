@@ -50,14 +50,14 @@ const en = {
       {
         heading: '2. How We Use Your Information',
         blocks: [
-          'We use your information to operate the platform, display your posts and profile to other users, send notifications you have opted into, prevent abuse and enforce our Terms of Service, and diagnose technical issues.',
+          'We use your information to operate the platform, display your posts and profile to other users, send notifications you have opted into, prevent abuse and enforce our Terms of Service, and diagnose technical issues. We do this to provide the service you signed up for, in our legitimate interest in keeping WaveCheck safe and working, with your consent for push notifications, which you can withdraw in Settings, and to comply with the law.',
         ],
       },
       {
         heading: '3. How We Share & Store Your Data',
         blocks: [
-          'We do not sell your personal data. We share data with the cloud infrastructure and service providers who help us run WaveCheck — including database, authentication, and file storage providers — and with Apple and Google for app distribution, push notifications, and in-app billing. We may also disclose information if required by law or to protect the safety of our users.',
-          'WaveCheck is operated from Australia, and your data is stored and processed on servers located in Australia. If you access WaveCheck from outside Australia, your information is transferred to and stored in Australia, which may have data-protection laws different from those in your country. We take reasonable steps to keep it protected in line with this policy.',
+          'We do not sell your personal data. We share data with the cloud infrastructure and service providers who help us run WaveCheck — including database, authentication, and file storage providers — and with Apple and Google for app distribution, push notifications, and in-app billing. We also use providers for content moderation, subscriptions, crash reports and push notifications. We may also disclose information if required by law or to protect the safety of our users.',
+          'WaveCheck is operated from Australia, and your data is stored on servers located in Australia. If you access WaveCheck from outside Australia, your information is transferred to and stored in Australia, which may have data-protection laws different from those in your country. We take reasonable steps to keep it protected in line with this policy. This transfer is necessary to provide the service you signed up for.',
         ],
       },
       {
@@ -69,7 +69,7 @@ const en = {
       {
         heading: '5. Your Rights',
         blocks: [
-          'You have the right to access, correct, or delete your personal data. You can manage most of this directly in your account settings, or contact us at {email} for assistance.',
+          'You can ask us to confirm whether we hold your personal data, to access, correct, delete, anonymise or block it, to give you a portable copy, or to tell you who we share it with. You can also object to how we use it, and you can refuse or withdraw your consent for push notifications, in which case WaveCheck still works without them. You can manage most of this directly in your account settings, or contact us at {email} for anything else. Users in Brazil can also lodge a complaint with the ANPD, Brazil’s data protection authority.',
           'We retain your personal data for as long as your account is active and delete it when you delete your account.',
         ],
       },
@@ -82,11 +82,11 @@ const en = {
       {
         heading: '7. Contact Us',
         blocks: [
-          'If you have questions about this Privacy Policy, please contact us at {email}.',
+          'WaveCheck is operated by Vinicius Teixeira Dias. If you have questions about this Privacy Policy, please contact us at {email}.',
         ],
       },
     ],
-    lastUpdated: 'Last updated: September 2026',
+    lastUpdated: 'Last updated: November 2026',
   },
 
   terms: {
