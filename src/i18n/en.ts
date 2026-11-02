@@ -69,7 +69,7 @@ const en = {
       {
         heading: '5. Your Rights',
         blocks: [
-          'You can ask us to confirm whether we hold your personal data, to access, correct, delete, anonymise or block it, to give you a portable copy, or to tell you who we share it with, and you can withdraw your consent. You can manage most of this directly in your account settings, or contact us at {email} for anything else. Users in Brazil can also lodge a complaint with the ANPD, Brazil’s data protection authority.',
+          'You can ask us to confirm whether we hold your personal data, to access, correct, delete, anonymise or block it, to give you a portable copy, or to tell you who we share it with. You can also object to how we use it, and you can refuse or withdraw your consent for push notifications, in which case WaveCheck still works without them. You can manage most of this directly in your account settings, or contact us at {email} for anything else. Users in Brazil can also lodge a complaint with the ANPD, Brazil’s data protection authority.',
           'We retain your personal data for as long as your account is active and delete it when you delete your account.',
         ],
       },

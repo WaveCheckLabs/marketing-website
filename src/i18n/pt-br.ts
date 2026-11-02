@@ -71,7 +71,7 @@ const ptBr: Dictionary = {
       {
         heading: '5. Seus Direitos',
         blocks: [
-          'Você pode nos pedir para confirmar se tratamos seus dados pessoais, para acessá-los, corrigi-los, excluí-los, anonimizá-los ou bloqueá-los, para fornecer uma cópia portável ou para informar com quem os compartilhamos, e pode revogar seu consentimento. Você pode gerenciar a maior parte disso diretamente nas configurações da sua conta ou entrar em contato pelo e-mail {email} para qualquer outro pedido. Você também pode apresentar uma reclamação à Autoridade Nacional de Proteção de Dados (ANPD).',
+          'Você pode nos pedir para confirmar se tratamos seus dados pessoais, para acessá-los, corrigi-los, excluí-los, anonimizá-los ou bloqueá-los, para fornecer uma cópia portável ou para informar com quem os compartilhamos. Você também pode se opor à forma como os usamos e pode recusar ou revogar seu consentimento para as notificações push; nesse caso, o WaveCheck continua funcionando sem elas. Você pode gerenciar a maior parte disso diretamente nas configurações da sua conta ou entrar em contato pelo e-mail {email} para qualquer outro pedido. Você também pode apresentar uma reclamação à Autoridade Nacional de Proteção de Dados (ANPD).',
           'Mantemos seus dados pessoais enquanto sua conta estiver ativa e os excluímos quando você exclui sua conta.',
         ],
       },
