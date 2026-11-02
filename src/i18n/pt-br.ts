@@ -52,14 +52,14 @@ const ptBr: Dictionary = {
       {
         heading: '2. Como Usamos Suas Informações',
         blocks: [
-          'Usamos suas informações para operar a plataforma, exibir seus posts e seu perfil para outros usuários, enviar as notificações que você ativou, prevenir abusos e fazer cumprir nossos Termos de Serviço, e diagnosticar problemas técnicos. Nos termos da Lei Geral de Proteção de Dados (LGPD), tratamos seus dados com base em: execução do serviço que você contratou (sua conta, posts, perfil e as recompensas que você resgata); nosso legítimo interesse em manter o WaveCheck seguro e funcionando (prevenção de abusos, segurança e diagnóstico de falhas); seu consentimento para as notificações push, que você pode revogar a qualquer momento nas Configurações; e cumprimento de obrigação legal, quando a lei exigir que guardemos ou divulguemos informações.',
+          'Usamos suas informações para operar a plataforma, exibir seus posts e seu perfil para outros usuários, enviar as notificações que você ativou, prevenir abusos e fazer cumprir nossos Termos de Serviço, e diagnosticar problemas técnicos. Fazemos isso para executar o serviço que você contratou, no nosso legítimo interesse em manter o WaveCheck seguro e funcionando, com o seu consentimento para as notificações push, que você pode revogar nas Configurações, e para cumprir obrigações legais.',
         ],
       },
       {
         heading: '3. Como Compartilhamos e Armazenamos Seus Dados',
         blocks: [
-          'Não vendemos seus dados pessoais. Compartilhamos dados com os provedores de infraestrutura em nuvem e de serviços que nos ajudam a operar o WaveCheck — incluindo provedores de banco de dados, autenticação e armazenamento de arquivos — e com a Apple e o Google para a distribuição do app, notificações push e cobranças no app. As fotos e os vídeos que você envia são verificados por um provedor de moderação de conteúdo (Sightengine), as assinaturas são gerenciadas pela RevenueCat e os relatórios de falhas são enviados ao Sentry para que possamos corrigir problemas. As notificações push são entregues pela Expo. Também podemos divulgar informações se exigido por lei ou para proteger a segurança dos nossos usuários.',
-          'O WaveCheck é operado a partir da Austrália, e seus dados são armazenados em servidores localizados na Austrália. Se você acessa o WaveCheck de fora da Austrália, suas informações são transferidas para a Austrália e armazenadas lá, e as leis de proteção de dados australianas podem ser diferentes das do seu país. Tomamos medidas razoáveis para mantê-las protegidas de acordo com esta política. Essa transferência é necessária para a execução do serviço que você contratou, hipótese prevista no art. 33, IX, da LGPD.',
+          'Não vendemos seus dados pessoais. Compartilhamos dados com os provedores de infraestrutura em nuvem e de serviços que nos ajudam a operar o WaveCheck — incluindo provedores de banco de dados, autenticação e armazenamento de arquivos — e com a Apple e o Google para a distribuição do app, notificações push e cobranças no app. Também usamos a Sightengine para moderação de conteúdo, a RevenueCat para assinaturas, o Sentry para relatórios de falhas e a Expo para notificações push. Também podemos divulgar informações se exigido por lei ou para proteger a segurança dos nossos usuários.',
+          'O WaveCheck é operado a partir da Austrália, e seus dados são armazenados em servidores localizados na Austrália. Se você acessa o WaveCheck de fora da Austrália, suas informações são transferidas para a Austrália e armazenadas lá, e as leis de proteção de dados australianas podem ser diferentes das do seu país. Tomamos medidas razoáveis para mantê-las protegidas de acordo com esta política. Essa transferência é necessária para a execução do serviço que você contratou (art. 33, IX, da LGPD).',
         ],
       },
       {
@@ -71,7 +71,7 @@ const ptBr: Dictionary = {
       {
         heading: '5. Seus Direitos',
         blocks: [
-          'Você tem o direito de confirmar se tratamos seus dados pessoais, acessá-los, corrigi-los ou excluí-los; de solicitar uma cópia em formato portável; de saber com quem os compartilhamos; de revogar seu consentimento quando ele for a base do tratamento; e de pedir a anonimização ou o bloqueio de dados desnecessários ou excessivos. Você pode gerenciar a maior parte disso diretamente nas configurações da sua conta ou entrar em contato pelo e-mail {email} para qualquer outro pedido. Você também pode apresentar uma reclamação à Autoridade Nacional de Proteção de Dados (ANPD).',
+          'Você pode nos pedir para confirmar se tratamos seus dados pessoais, para acessá-los, corrigi-los, excluí-los, anonimizá-los ou bloqueá-los, para fornecer uma cópia portável ou para informar com quem os compartilhamos, e pode revogar seu consentimento. Você pode gerenciar a maior parte disso diretamente nas configurações da sua conta ou entrar em contato pelo e-mail {email} para qualquer outro pedido. Você também pode apresentar uma reclamação à Autoridade Nacional de Proteção de Dados (ANPD).',
           'Mantemos seus dados pessoais enquanto sua conta estiver ativa e os excluímos quando você exclui sua conta.',
         ],
       },
@@ -84,7 +84,7 @@ const ptBr: Dictionary = {
       {
         heading: '7. Fale Conosco',
         blocks: [
-          'O WaveCheck é operado por Vinicius Teixeira Dias, controlador responsável pelos seus dados pessoais. Se você tiver dúvidas sobre esta Política de Privacidade ou quiser exercer seus direitos, entre em contato pelo e-mail {email}.',
+          'O WaveCheck é operado por Vinicius Teixeira Dias, controlador responsável pelos seus dados pessoais. Se você tiver dúvidas sobre esta Política de Privacidade, entre em contato pelo e-mail {email}.',
         ],
       },
     ],
@@ -180,7 +180,7 @@ const ptBr: Dictionary = {
       {
         heading: '12. Lei Aplicável e Disputas',
         blocks: [
-          'Estes Termos são regidos pelas leis de Queensland, Austrália. Quaisquer disputas decorrentes destes Termos ou do seu uso do WaveCheck serão resolvidas nos tribunais de Queensland, e você concorda em se submeter à jurisdição exclusiva desses tribunais. Nada nestes Termos limita os direitos de consumidor que você tem pelas leis do lugar onde vive.',
+          'Estes Termos são regidos pelas leis de Queensland, Austrália. Quaisquer disputas decorrentes destes Termos ou do seu uso do WaveCheck serão resolvidas nos tribunais de Queensland, e você concorda em se submeter à jurisdição exclusiva desses tribunais.',
         ],
       },
       {
@@ -190,7 +190,7 @@ const ptBr: Dictionary = {
         ],
       },
     ],
-    lastUpdated: 'Última atualização: novembro de 2026',
+    lastUpdated: 'Última atualização: outubro de 2026',
   },
 
   liveFeed: {
