@@ -56,7 +56,7 @@ const en = {
       {
         heading: '3. How We Share & Store Your Data',
         blocks: [
-          'We do not sell your personal data. We share data with the cloud infrastructure and service providers who help us run WaveCheck — including database, authentication, and file storage providers — and with Apple and Google for app distribution, push notifications, and in-app billing. We also use Sightengine for content moderation, RevenueCat for subscriptions, Sentry for crash reports and Expo for push notifications. We may also disclose information if required by law or to protect the safety of our users.',
+          'We do not sell your personal data. We share data with the cloud infrastructure and service providers who help us run WaveCheck — including database, authentication, and file storage providers — and with Apple and Google for app distribution, push notifications, and in-app billing. We also use providers for content moderation, subscriptions, crash reports and push notifications. We may also disclose information if required by law or to protect the safety of our users.',
           'WaveCheck is operated from Australia, and your data is stored on servers located in Australia. If you access WaveCheck from outside Australia, your information is transferred to and stored in Australia, which may have data-protection laws different from those in your country. We take reasonable steps to keep it protected in line with this policy. This transfer is necessary to provide the service you signed up for.',
         ],
       },
@@ -82,7 +82,7 @@ const en = {
       {
         heading: '7. Contact Us',
         blocks: [
-          'WaveCheck is operated by Vinicius Teixeira Dias, who is responsible for your personal data. If you have questions about this Privacy Policy, please contact us at {email}.',
+          'WaveCheck is operated by Vinicius Teixeira Dias. If you have questions about this Privacy Policy, please contact us at {email}.',
         ],
       },
     ],

@@ -58,8 +58,8 @@ const ptBr: Dictionary = {
       {
         heading: '3. Como Compartilhamos e Armazenamos Seus Dados',
         blocks: [
-          'Não vendemos seus dados pessoais. Compartilhamos dados com os provedores de infraestrutura em nuvem e de serviços que nos ajudam a operar o WaveCheck — incluindo provedores de banco de dados, autenticação e armazenamento de arquivos — e com a Apple e o Google para a distribuição do app, notificações push e cobranças no app. Também usamos a Sightengine para moderação de conteúdo, a RevenueCat para assinaturas, o Sentry para relatórios de falhas e a Expo para notificações push. Também podemos divulgar informações se exigido por lei ou para proteger a segurança dos nossos usuários.',
-          'O WaveCheck é operado a partir da Austrália, e seus dados são armazenados em servidores localizados na Austrália. Se você acessa o WaveCheck de fora da Austrália, suas informações são transferidas para a Austrália e armazenadas lá, e as leis de proteção de dados australianas podem ser diferentes das do seu país. Tomamos medidas razoáveis para mantê-las protegidas de acordo com esta política. Essa transferência é necessária para a execução do serviço que você contratou (art. 33, IX, da LGPD).',
+          'Não vendemos seus dados pessoais. Compartilhamos dados com os provedores de infraestrutura em nuvem e de serviços que nos ajudam a operar o WaveCheck — incluindo provedores de banco de dados, autenticação e armazenamento de arquivos — e com a Apple e o Google para a distribuição do app, notificações push e cobranças no app. Também usamos provedores de moderação de conteúdo, assinaturas, relatórios de falhas e notificações push. Também podemos divulgar informações se exigido por lei ou para proteger a segurança dos nossos usuários.',
+          'O WaveCheck é operado a partir da Austrália, e seus dados são armazenados em servidores localizados na Austrália. Se você acessa o WaveCheck de fora da Austrália, suas informações são transferidas para a Austrália e armazenadas lá, e as leis de proteção de dados australianas podem ser diferentes das do seu país. Tomamos medidas razoáveis para mantê-las protegidas de acordo com esta política. Essa transferência é necessária para a execução do serviço que você contratou.',
         ],
       },
       {
@@ -84,7 +84,7 @@ const ptBr: Dictionary = {
       {
         heading: '7. Fale Conosco',
         blocks: [
-          'O WaveCheck é operado por Vinicius Teixeira Dias, controlador responsável pelos seus dados pessoais. Se você tiver dúvidas sobre esta Política de Privacidade, entre em contato pelo e-mail {email}.',
+          'O WaveCheck é operado por Vinicius Teixeira Dias, controlador dos seus dados pessoais. Se você tiver dúvidas sobre esta Política de Privacidade, entre em contato pelo e-mail {email}.',
         ],
       },
     ],
